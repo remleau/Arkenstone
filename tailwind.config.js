@@ -19,7 +19,7 @@ module.exports = {
       'primaryColor': '#00adb5',
       'primaryDark': '#222831',
       'primaryDarkMedium': '#393e46',
-      'primaryLight': '#eeeeee',
+      'primaryLight': '#f5f5f5f5',
 
     },
     spacing: {

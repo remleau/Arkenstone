@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import Header from './components/Header';
+import Sidebar from './components/Sidebar';
 
 const App = () => {
     return (
-        <main>
-            <Header />
-            <div className="container allo">
-                <div className="flex">
+        <main className="bg-primaryLight">
+            <Sidebar />
+            <div className="wrapper">
+                <Header />
+                <div className="flex pt-8 pl-4">
                     allo
                 </div>
             </div>

@@ -3,8 +3,10 @@
 
 /** Import theme styles */
 @import "common/global";
+@import "common/typographie.scss";
 @import "components/slider";
 @import "components/buttons";
+@import "components/slidebar";
 @import "layouts/header";
 @import "layouts/footer";
 @import "layouts/pages";
