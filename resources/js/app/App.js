@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
+import Login from './pages/Login';
+
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 
@@ -18,13 +20,14 @@ const App = () => {
 
     return (
         <main className="bg-primaryLight">
-            <Sidebar />
+            <Login agencyName="Wink Strategies"/>
+            {/* <Sidebar />
             <div className="wrapper">
                 <Header />
                 <div className="flex pt-8 pl-4">
                     {invite}
                 </div>
-            </div>
+            </div> */}
         </main>
     );
 }

@@ -1,0 +1,17 @@
+.page {
+
+	&__login {
+		@apply h-screen w-full flex items-center justify-center;
+
+		input {
+			@apply mb-6 border;
+		}
+
+		button{
+			&:first-of-type{
+				@apply mb-6;
+			}
+		}
+	}
+
+}

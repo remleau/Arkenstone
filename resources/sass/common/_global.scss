@@ -5,3 +5,9 @@ body {
 .wrapper {
 	@apply h-screen ml-auto w-10/12;
 }
+
+input,select,textarea,button {
+	@apply p-3 border;
+	font-family: 'Lato', sans-serif;
+	border-color: darken(#f5f5f5, 3%);
+}

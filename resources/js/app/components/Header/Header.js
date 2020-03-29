@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import './Header.scss'; 
 import bell from './../../../../../public/images/svg/icon-notification.svg';
 import search from './../../../../../public/images/svg/icon-search.svg';
 import user from './../../../../../public/images/svg/icon-user.svg';
