@@ -2,6 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import './Header.scss'; 
+import bell from './../../../../../public/images/svg/icon-notification.svg';
+import search from './../../../../../public/images/svg/icon-search.svg';
+import user from './../../../../../public/images/svg/icon-user.svg';
 
 const Header = () => {
 
@@ -16,9 +19,9 @@ const Header = () => {
       </nav>
       <nav className="secondary">
         <ul>
-          <li><NavLink to={'/'} exact activeClassName='is-active'>Personnes</NavLink></li>
-          <li><NavLink to={'/projets'} activeClassName='is-active'>Projets</NavLink></li>
-          <li><NavLink to={'/a-propos'} activeClassName='is-active'>Calendrier</NavLink></li>
+          <li><img src={bell} alt="notification" /></li>
+          <li><img src={search} alt="notification" /></li>
+          <li><img src={user} alt="user" /></li>
         </ul>
       </nav>
     </header>

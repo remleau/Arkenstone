@@ -711,6 +711,12 @@ header nav.primary ul li a.is-active:after {
   background-color: #00adb5;
 }
 
+header nav.secondary ul li img {
+  width: 1.25rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

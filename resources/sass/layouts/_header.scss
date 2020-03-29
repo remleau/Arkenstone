@@ -38,4 +38,20 @@ header {
 			}
 		}
 	}
+
+	nav.secondary {
+		ul {
+			li {
+				img {
+					@apply w-5 mx-3;
+
+					// @media (hover: hover) {
+					// 	&:hover {
+					// 		@apply text-primaryColor;
+					// 	}
+					// }
+				}
+			}
+		}
+	}
 }

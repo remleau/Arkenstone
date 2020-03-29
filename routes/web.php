@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\NewMessage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,4 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/{path?}', 'app');
+Route::get('/{any}', function () {
+	
+	broadcast(new NewMessage('allo'));
+	return view('app');
+
+})->where('any', '.*');
