@@ -10,4 +10,14 @@ input,select,textarea,button {
 	@apply p-3 border;
 	font-family: 'Lato', sans-serif;
 	border-color: darken(#f5f5f5, 3%);
+	
+	@media (hover: hover) {
+		&:hover {
+			border-color: theme('colors.primaryColor');
+		}
+	}
+}
+
+button {
+	@apply text-primaryLight bg-primaryColor border-0;
 }

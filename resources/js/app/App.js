@@ -1,33 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { Switch, Route ,BrowserRouter } from 'react-router-dom';
 
 import Login from './pages/Login';
-
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
+import Homepage from './pages/Homepage';
+import Page404 from './pages/Page404';
 
 const App = () => {
 
-    const [invite, setInvite] = useState([invite]);
-
-    useEffect(() => {
-        window.Echo.channel('message')
-            .listen('.message.created', (e) => {
-                setInvite(e.invite);
-            });
-    });
-
     return (
         <main className="bg-primaryLight">
-            <Login agencyName="Wink Strategies"/>
-            {/* <Sidebar />
-            <div className="wrapper">
-                <Header />
-                <div className="flex pt-8 pl-4">
-                    {invite}
-                </div>
-            </div> */}
+            <Switch>
+                <Route exact path='/' render={(props) => <Login {...props} agencyName="Wink Strategies" />} />
+                <Route path='/dashboard' render={(props) => <Homepage {...props} />} />
+                <Route component={Page404} />
+            </Switch>
         </main>
     );
 }

@@ -7,10 +7,8 @@
 			@apply mb-6 border;
 		}
 
-		button{
-			&:first-of-type{
-				@apply mb-6;
-			}
+		button {
+			@apply w-full;
 		}
 	}
 
