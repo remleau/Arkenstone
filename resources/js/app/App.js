@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Switch, Route ,BrowserRouter } from 'react-router-dom';
+import { UserProvider } from './utils/UserContext.js';
 
 import Login from './pages/Login';
 import Homepage from './pages/Homepage';
@@ -23,6 +24,8 @@ export default App;
 
 ReactDOM.render(
 <BrowserRouter>
-    <App />
+    <UserProvider>
+        <App /> 
+    </UserProvider>
 </BrowserRouter>
 , document.getElementById('App'));

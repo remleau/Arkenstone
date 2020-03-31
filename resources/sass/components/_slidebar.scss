@@ -7,4 +7,8 @@
 		@apply px-4 py-6 text-center text-2xl;
 	}
 
+	.btn-logout {
+		@apply absolute bottom-0 w-full text-center;
+	}
+
 }

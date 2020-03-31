@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
+import { UserContext } from './../../utils/UserContext.js';
 
 const Login = (props) => {
+
+  const { setIsLoggedIn } = useContext(UserContext);
 
   const [redirect, setRedirect] = useState(false);
   const [username, setUsername] = useState();
@@ -18,9 +21,11 @@ const Login = (props) => {
           'password': password,
         })
         // Once we get a response, we'll map the API endpoints to our props
-        .then(response =>
+        .then((response) => {
+          setIsLoggedIn(true);
+          setRedirect(true);
           console.log(response.data)
-        )
+        })
         // Let's make sure to change the loading state to display the data
         .then(users => {
           // this.setState({
@@ -34,6 +39,7 @@ const Login = (props) => {
   }
 
   const connectGuest = () => {
+    setIsLoggedIn(true);
     setRedirect(true);
   }
 
