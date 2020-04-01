@@ -4,7 +4,7 @@ import { UserContext } from './../../utils/UserContext.js';
 
 const Login = (props) => {
 
-  const { setIsLoggedIn } = useContext(UserContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
 
   const [redirect, setRedirect] = useState(false);
   const [username, setUsername] = useState();
@@ -43,7 +43,7 @@ const Login = (props) => {
     setRedirect(true);
   }
 
-  if (redirect){
+  if (redirect || isLoggedIn){
     return (
       <Redirect to={"/dashboard"} />
     )

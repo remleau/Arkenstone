@@ -14,7 +14,7 @@ const Homepage = () => {
 
   const { isLoggedIn } = useContext(UserContext);
 
-  if(!isLoggedIn){
+   if(!isLoggedIn){
     return (
       <Redirect to={"/"} />
     )
@@ -25,7 +25,7 @@ const Homepage = () => {
       <Sidebar />
       <div className="wrapper">
           <Header />
-          <div className="h-screen pt-8 px-4 overflow-auto">
+          <div className="h-screen pt-8 pb-20 px-4 overflow-auto">
             <Switch>
               <Route exact path='/dashboard' component={Dashboard} />
               <Route exact path='/dashboard/projets' component={Projets} />

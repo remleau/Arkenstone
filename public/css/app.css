@@ -657,6 +657,21 @@ button {
   color: #f5f5f5f5;
   background-color: #00adb5;
   border-width: 0;
+  border-radius: 0.25rem;
+  line-height: 1.375;
+  font-size: 0.9375rem;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay.black {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 body {
@@ -706,6 +721,7 @@ h3 {
   bottom: 0;
   width: 100%;
   text-align: center;
+  border-radius: 0;
 }
 
 header {
@@ -772,6 +788,12 @@ header nav.secondary ul li img {
 
 .page__login button {
   width: 100%;
+}
+
+.page__projets .projet {
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3334&q=80");
 }
 
 .sr-only {
@@ -4855,8 +4877,16 @@ header nav.secondary ul li img {
   font-size: 0.75rem;
 }
 
+.text-sm1 {
+  font-size: 0.8125rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
+}
+
+.text-sm2 {
+  font-size: 0.9375rem;
 }
 
 .text-base {
@@ -11795,8 +11825,16 @@ header nav.secondary ul li img {
     font-size: 0.75rem;
   }
 
+  .sm\:text-sm1 {
+    font-size: 0.8125rem;
+  }
+
   .sm\:text-sm {
     font-size: 0.875rem;
+  }
+
+  .sm\:text-sm2 {
+    font-size: 0.9375rem;
   }
 
   .sm\:text-base {
@@ -18736,8 +18774,16 @@ header nav.secondary ul li img {
     font-size: 0.75rem;
   }
 
+  .md\:text-sm1 {
+    font-size: 0.8125rem;
+  }
+
   .md\:text-sm {
     font-size: 0.875rem;
+  }
+
+  .md\:text-sm2 {
+    font-size: 0.9375rem;
   }
 
   .md\:text-base {
@@ -25677,8 +25723,16 @@ header nav.secondary ul li img {
     font-size: 0.75rem;
   }
 
+  .lg\:text-sm1 {
+    font-size: 0.8125rem;
+  }
+
   .lg\:text-sm {
     font-size: 0.875rem;
+  }
+
+  .lg\:text-sm2 {
+    font-size: 0.9375rem;
   }
 
   .lg\:text-base {
@@ -32618,8 +32672,16 @@ header nav.secondary ul li img {
     font-size: 0.75rem;
   }
 
+  .xl\:text-sm1 {
+    font-size: 0.8125rem;
+  }
+
   .xl\:text-sm {
     font-size: 0.875rem;
+  }
+
+  .xl\:text-sm2 {
+    font-size: 0.9375rem;
   }
 
   .xl\:text-base {

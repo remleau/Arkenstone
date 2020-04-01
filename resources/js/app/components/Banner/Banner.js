@@ -10,12 +10,9 @@ const Banner = (props) => {
       console.log(e)
     });
 
-    console.log('run')
-
   return (
     <div>
       <h2>{props.pageTitle}</h2> 
-      <div>{invite}</div>
     </div>
   );
 }

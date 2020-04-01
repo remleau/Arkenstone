@@ -4,11 +4,14 @@ export const UserContext = createContext();
 
 export const UserProvider = props => {
     
-    const [user, setUser] = useState();
+    const [user, setUser] = useState({
+        role: "admin"
+    });
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(()=>{
         //check cookie et si cookie setIsLoggedIn(true) setUser(data)
+        setIsLoggedIn(true)
     });
     
     return(
