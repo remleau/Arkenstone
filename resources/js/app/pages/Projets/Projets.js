@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Banner from './../../components/Banner';
+import Modal from './../../components/Modal';
 import UserCan from './../../components/Permissions';
 
 
 const Projets = () => {
+
+  const [modal, setModal] = useState(false);
+  const showModal = () => {
+    setModal(!modal);
+  }
+
+  const closeModal = () => {
+    setModal(false);
+  }
+
   return (
     <div className="page__projets">
 
       <div className="flex items-center justify-between pb-8">
         <Banner pageTitle="Projets" />
         <UserCan>
-          <button>Ajouter un projet</button>
+          <button onClick={showModal}>Ajouter un projet</button>
         </UserCan>
       </div>
+
+      <Modal show={modal} hide={closeModal} title="Ajouter un projet">
+        modal allo
+      </Modal>
 
       <div className="flex flex-wrap -mx-4">
         <article className="p-4 w-1/5">
