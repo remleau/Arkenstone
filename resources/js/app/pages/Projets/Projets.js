@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { ProjectContext } from './../../utils/ProjectContext.js';
+
 import Banner from './../../components/Banner';
 import Modal from './../../components/Modal';
 import UserCan from './../../components/Permissions';
-
+import Form from './../../components/Form';
+import Project from './../../components/CardProject';
 
 const Projets = () => {
 
@@ -13,6 +16,12 @@ const Projets = () => {
 
   const closeModal = () => {
     setModal(false);
+  }
+
+  const [projects, setProjects] = useContext(ProjectContext);
+
+  const validated = () => {
+    console.log('allo')
   }
 
   return (
@@ -26,28 +35,17 @@ const Projets = () => {
       </div>
 
       <Modal show={modal} hide={closeModal} title="Ajouter un projet">
-        modal allo
+        <Form action="someurltopost" type="project">
+          <input className="required" name="name" type="text" placeholder="Nom du projet" />
+          <input className="required" name="statut" type="text" placeholder="Statut du projet" />
+          <button>Ajouter</button>
+        </Form>
       </Modal>
 
       <div className="flex flex-wrap -mx-4">
-        <article className="p-4 w-1/5">
-          <div className="projet relative h-64 rounded-md overflow-hidden flex items-end p-4">
-            <div className="overlay black"></div>
-            <div className="z-20">
-              <h3 className="pb-3 text-white">Nom du projet</h3>
-              <button>Voir le projet</button>
-            </div>
-          </div>
-        </article>
-        <article className="p-4 w-1/5">
-          <div className="projet relative h-64 rounded-md overflow-hidden flex items-end p-4">
-            <div className="overlay black"></div>
-            <div className="z-20">
-              <h3 className="pb-3 text-white">Nom du projet</h3>
-              <button>Voir le projet</button>
-            </div>
-          </div>
-        </article>
+        {projects.map(project => (
+          <Project name={project.name} statut={project.statut} />
+        ))}
       </div>
 
     </div>

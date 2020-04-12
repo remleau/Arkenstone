@@ -16,6 +16,10 @@ input,select,textarea,button {
 			border-color: theme('colors.primaryColor');
 		}
 	}
+
+	&.error {
+		@apply border-red;
+	}
 }
 
 button {

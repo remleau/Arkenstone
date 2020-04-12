@@ -653,6 +653,10 @@ input, select, textarea, button {
   }
 }
 
+input.error, select.error, textarea.error, button.error {
+  border-color: #b40021;
+}
+
 button {
   color: #f5f5f5f5;
   background-color: #00adb5;
@@ -748,6 +752,20 @@ header nav ul {
 header nav ul li a {
   display: inline-block;
   position: relative;
+}
+
+header nav ul li a sup {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: #00adb5;
+  font-size: 0.75rem;
+  color: #fff;
+  border-radius: 50%;
 }
 
 header nav.primary ul li a {
@@ -887,6 +905,10 @@ header nav.secondary ul li img {
   background-color: #fff;
 }
 
+.bg-red {
+  background-color: #b40021;
+}
+
 .bg-primaryColor {
   background-color: #00adb5;
 }
@@ -923,6 +945,10 @@ header nav.secondary ul li img {
   background-color: #fff;
 }
 
+.hover\:bg-red:hover {
+  background-color: #b40021;
+}
+
 .hover\:bg-primaryColor:hover {
   background-color: #00adb5;
 }
@@ -957,6 +983,10 @@ header nav.secondary ul li img {
 
 .focus\:bg-white:focus {
   background-color: #fff;
+}
+
+.focus\:bg-red:focus {
+  background-color: #b40021;
 }
 
 .focus\:bg-primaryColor:focus {
@@ -1075,6 +1105,10 @@ header nav.secondary ul li img {
   border-color: #fff;
 }
 
+.border-red {
+  border-color: #b40021;
+}
+
 .border-primaryColor {
   border-color: #00adb5;
 }
@@ -1111,6 +1145,10 @@ header nav.secondary ul li img {
   border-color: #fff;
 }
 
+.hover\:border-red:hover {
+  border-color: #b40021;
+}
+
 .hover\:border-primaryColor:hover {
   border-color: #00adb5;
 }
@@ -1145,6 +1183,10 @@ header nav.secondary ul li img {
 
 .focus\:border-white:focus {
   border-color: #fff;
+}
+
+.focus\:border-red:focus {
+  border-color: #b40021;
 }
 
 .focus\:border-primaryColor:focus {
@@ -4221,6 +4263,26 @@ header nav.secondary ul li img {
   color: #fff;
 }
 
+.placeholder-red::-webkit-input-placeholder {
+  color: #b40021;
+}
+
+.placeholder-red::-moz-placeholder {
+  color: #b40021;
+}
+
+.placeholder-red:-ms-input-placeholder {
+  color: #b40021;
+}
+
+.placeholder-red::-ms-input-placeholder {
+  color: #b40021;
+}
+
+.placeholder-red::placeholder {
+  color: #b40021;
+}
+
 .placeholder-primaryColor::-webkit-input-placeholder {
   color: #00adb5;
 }
@@ -4399,6 +4461,26 @@ header nav.secondary ul li img {
 
 .focus\:placeholder-white:focus::placeholder {
   color: #fff;
+}
+
+.focus\:placeholder-red:focus::-webkit-input-placeholder {
+  color: #b40021;
+}
+
+.focus\:placeholder-red:focus::-moz-placeholder {
+  color: #b40021;
+}
+
+.focus\:placeholder-red:focus:-ms-input-placeholder {
+  color: #b40021;
+}
+
+.focus\:placeholder-red:focus::-ms-input-placeholder {
+  color: #b40021;
+}
+
+.focus\:placeholder-red:focus::placeholder {
+  color: #b40021;
 }
 
 .focus\:placeholder-primaryColor:focus::-webkit-input-placeholder {
@@ -4792,6 +4874,10 @@ header nav.secondary ul li img {
   color: #fff;
 }
 
+.text-red {
+  color: #b40021;
+}
+
 .text-primaryColor {
   color: #00adb5;
 }
@@ -4828,6 +4914,10 @@ header nav.secondary ul li img {
   color: #fff;
 }
 
+.hover\:text-red:hover {
+  color: #b40021;
+}
+
 .hover\:text-primaryColor:hover {
   color: #00adb5;
 }
@@ -4862,6 +4952,10 @@ header nav.secondary ul li img {
 
 .focus\:text-white:focus {
   color: #fff;
+}
+
+.focus\:text-red:focus {
+  color: #b40021;
 }
 
 .focus\:text-primaryColor:focus {
@@ -7835,6 +7929,10 @@ header nav.secondary ul li img {
     background-color: #fff;
   }
 
+  .sm\:bg-red {
+    background-color: #b40021;
+  }
+
   .sm\:bg-primaryColor {
     background-color: #00adb5;
   }
@@ -7871,6 +7969,10 @@ header nav.secondary ul li img {
     background-color: #fff;
   }
 
+  .sm\:hover\:bg-red:hover {
+    background-color: #b40021;
+  }
+
   .sm\:hover\:bg-primaryColor:hover {
     background-color: #00adb5;
   }
@@ -7905,6 +8007,10 @@ header nav.secondary ul li img {
 
   .sm\:focus\:bg-white:focus {
     background-color: #fff;
+  }
+
+  .sm\:focus\:bg-red:focus {
+    background-color: #b40021;
   }
 
   .sm\:focus\:bg-primaryColor:focus {
@@ -8023,6 +8129,10 @@ header nav.secondary ul li img {
     border-color: #fff;
   }
 
+  .sm\:border-red {
+    border-color: #b40021;
+  }
+
   .sm\:border-primaryColor {
     border-color: #00adb5;
   }
@@ -8059,6 +8169,10 @@ header nav.secondary ul li img {
     border-color: #fff;
   }
 
+  .sm\:hover\:border-red:hover {
+    border-color: #b40021;
+  }
+
   .sm\:hover\:border-primaryColor:hover {
     border-color: #00adb5;
   }
@@ -8093,6 +8207,10 @@ header nav.secondary ul li img {
 
   .sm\:focus\:border-white:focus {
     border-color: #fff;
+  }
+
+  .sm\:focus\:border-red:focus {
+    border-color: #b40021;
   }
 
   .sm\:focus\:border-primaryColor:focus {
@@ -11169,6 +11287,26 @@ header nav.secondary ul li img {
     color: #fff;
   }
 
+  .sm\:placeholder-red::-webkit-input-placeholder {
+    color: #b40021;
+  }
+
+  .sm\:placeholder-red::-moz-placeholder {
+    color: #b40021;
+  }
+
+  .sm\:placeholder-red:-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .sm\:placeholder-red::-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .sm\:placeholder-red::placeholder {
+    color: #b40021;
+  }
+
   .sm\:placeholder-primaryColor::-webkit-input-placeholder {
     color: #00adb5;
   }
@@ -11347,6 +11485,26 @@ header nav.secondary ul li img {
 
   .sm\:focus\:placeholder-white:focus::placeholder {
     color: #fff;
+  }
+
+  .sm\:focus\:placeholder-red:focus::-webkit-input-placeholder {
+    color: #b40021;
+  }
+
+  .sm\:focus\:placeholder-red:focus::-moz-placeholder {
+    color: #b40021;
+  }
+
+  .sm\:focus\:placeholder-red:focus:-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .sm\:focus\:placeholder-red:focus::-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .sm\:focus\:placeholder-red:focus::placeholder {
+    color: #b40021;
   }
 
   .sm\:focus\:placeholder-primaryColor:focus::-webkit-input-placeholder {
@@ -11740,6 +11898,10 @@ header nav.secondary ul li img {
     color: #fff;
   }
 
+  .sm\:text-red {
+    color: #b40021;
+  }
+
   .sm\:text-primaryColor {
     color: #00adb5;
   }
@@ -11776,6 +11938,10 @@ header nav.secondary ul li img {
     color: #fff;
   }
 
+  .sm\:hover\:text-red:hover {
+    color: #b40021;
+  }
+
   .sm\:hover\:text-primaryColor:hover {
     color: #00adb5;
   }
@@ -11810,6 +11976,10 @@ header nav.secondary ul li img {
 
   .sm\:focus\:text-white:focus {
     color: #fff;
+  }
+
+  .sm\:focus\:text-red:focus {
+    color: #b40021;
   }
 
   .sm\:focus\:text-primaryColor:focus {
@@ -14784,6 +14954,10 @@ header nav.secondary ul li img {
     background-color: #fff;
   }
 
+  .md\:bg-red {
+    background-color: #b40021;
+  }
+
   .md\:bg-primaryColor {
     background-color: #00adb5;
   }
@@ -14820,6 +14994,10 @@ header nav.secondary ul li img {
     background-color: #fff;
   }
 
+  .md\:hover\:bg-red:hover {
+    background-color: #b40021;
+  }
+
   .md\:hover\:bg-primaryColor:hover {
     background-color: #00adb5;
   }
@@ -14854,6 +15032,10 @@ header nav.secondary ul li img {
 
   .md\:focus\:bg-white:focus {
     background-color: #fff;
+  }
+
+  .md\:focus\:bg-red:focus {
+    background-color: #b40021;
   }
 
   .md\:focus\:bg-primaryColor:focus {
@@ -14972,6 +15154,10 @@ header nav.secondary ul li img {
     border-color: #fff;
   }
 
+  .md\:border-red {
+    border-color: #b40021;
+  }
+
   .md\:border-primaryColor {
     border-color: #00adb5;
   }
@@ -15008,6 +15194,10 @@ header nav.secondary ul li img {
     border-color: #fff;
   }
 
+  .md\:hover\:border-red:hover {
+    border-color: #b40021;
+  }
+
   .md\:hover\:border-primaryColor:hover {
     border-color: #00adb5;
   }
@@ -15042,6 +15232,10 @@ header nav.secondary ul li img {
 
   .md\:focus\:border-white:focus {
     border-color: #fff;
+  }
+
+  .md\:focus\:border-red:focus {
+    border-color: #b40021;
   }
 
   .md\:focus\:border-primaryColor:focus {
@@ -18118,6 +18312,26 @@ header nav.secondary ul li img {
     color: #fff;
   }
 
+  .md\:placeholder-red::-webkit-input-placeholder {
+    color: #b40021;
+  }
+
+  .md\:placeholder-red::-moz-placeholder {
+    color: #b40021;
+  }
+
+  .md\:placeholder-red:-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .md\:placeholder-red::-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .md\:placeholder-red::placeholder {
+    color: #b40021;
+  }
+
   .md\:placeholder-primaryColor::-webkit-input-placeholder {
     color: #00adb5;
   }
@@ -18296,6 +18510,26 @@ header nav.secondary ul li img {
 
   .md\:focus\:placeholder-white:focus::placeholder {
     color: #fff;
+  }
+
+  .md\:focus\:placeholder-red:focus::-webkit-input-placeholder {
+    color: #b40021;
+  }
+
+  .md\:focus\:placeholder-red:focus::-moz-placeholder {
+    color: #b40021;
+  }
+
+  .md\:focus\:placeholder-red:focus:-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .md\:focus\:placeholder-red:focus::-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .md\:focus\:placeholder-red:focus::placeholder {
+    color: #b40021;
   }
 
   .md\:focus\:placeholder-primaryColor:focus::-webkit-input-placeholder {
@@ -18689,6 +18923,10 @@ header nav.secondary ul li img {
     color: #fff;
   }
 
+  .md\:text-red {
+    color: #b40021;
+  }
+
   .md\:text-primaryColor {
     color: #00adb5;
   }
@@ -18725,6 +18963,10 @@ header nav.secondary ul li img {
     color: #fff;
   }
 
+  .md\:hover\:text-red:hover {
+    color: #b40021;
+  }
+
   .md\:hover\:text-primaryColor:hover {
     color: #00adb5;
   }
@@ -18759,6 +19001,10 @@ header nav.secondary ul li img {
 
   .md\:focus\:text-white:focus {
     color: #fff;
+  }
+
+  .md\:focus\:text-red:focus {
+    color: #b40021;
   }
 
   .md\:focus\:text-primaryColor:focus {
@@ -21733,6 +21979,10 @@ header nav.secondary ul li img {
     background-color: #fff;
   }
 
+  .lg\:bg-red {
+    background-color: #b40021;
+  }
+
   .lg\:bg-primaryColor {
     background-color: #00adb5;
   }
@@ -21769,6 +22019,10 @@ header nav.secondary ul li img {
     background-color: #fff;
   }
 
+  .lg\:hover\:bg-red:hover {
+    background-color: #b40021;
+  }
+
   .lg\:hover\:bg-primaryColor:hover {
     background-color: #00adb5;
   }
@@ -21803,6 +22057,10 @@ header nav.secondary ul li img {
 
   .lg\:focus\:bg-white:focus {
     background-color: #fff;
+  }
+
+  .lg\:focus\:bg-red:focus {
+    background-color: #b40021;
   }
 
   .lg\:focus\:bg-primaryColor:focus {
@@ -21921,6 +22179,10 @@ header nav.secondary ul li img {
     border-color: #fff;
   }
 
+  .lg\:border-red {
+    border-color: #b40021;
+  }
+
   .lg\:border-primaryColor {
     border-color: #00adb5;
   }
@@ -21957,6 +22219,10 @@ header nav.secondary ul li img {
     border-color: #fff;
   }
 
+  .lg\:hover\:border-red:hover {
+    border-color: #b40021;
+  }
+
   .lg\:hover\:border-primaryColor:hover {
     border-color: #00adb5;
   }
@@ -21991,6 +22257,10 @@ header nav.secondary ul li img {
 
   .lg\:focus\:border-white:focus {
     border-color: #fff;
+  }
+
+  .lg\:focus\:border-red:focus {
+    border-color: #b40021;
   }
 
   .lg\:focus\:border-primaryColor:focus {
@@ -25067,6 +25337,26 @@ header nav.secondary ul li img {
     color: #fff;
   }
 
+  .lg\:placeholder-red::-webkit-input-placeholder {
+    color: #b40021;
+  }
+
+  .lg\:placeholder-red::-moz-placeholder {
+    color: #b40021;
+  }
+
+  .lg\:placeholder-red:-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .lg\:placeholder-red::-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .lg\:placeholder-red::placeholder {
+    color: #b40021;
+  }
+
   .lg\:placeholder-primaryColor::-webkit-input-placeholder {
     color: #00adb5;
   }
@@ -25245,6 +25535,26 @@ header nav.secondary ul li img {
 
   .lg\:focus\:placeholder-white:focus::placeholder {
     color: #fff;
+  }
+
+  .lg\:focus\:placeholder-red:focus::-webkit-input-placeholder {
+    color: #b40021;
+  }
+
+  .lg\:focus\:placeholder-red:focus::-moz-placeholder {
+    color: #b40021;
+  }
+
+  .lg\:focus\:placeholder-red:focus:-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .lg\:focus\:placeholder-red:focus::-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .lg\:focus\:placeholder-red:focus::placeholder {
+    color: #b40021;
   }
 
   .lg\:focus\:placeholder-primaryColor:focus::-webkit-input-placeholder {
@@ -25638,6 +25948,10 @@ header nav.secondary ul li img {
     color: #fff;
   }
 
+  .lg\:text-red {
+    color: #b40021;
+  }
+
   .lg\:text-primaryColor {
     color: #00adb5;
   }
@@ -25674,6 +25988,10 @@ header nav.secondary ul li img {
     color: #fff;
   }
 
+  .lg\:hover\:text-red:hover {
+    color: #b40021;
+  }
+
   .lg\:hover\:text-primaryColor:hover {
     color: #00adb5;
   }
@@ -25708,6 +26026,10 @@ header nav.secondary ul li img {
 
   .lg\:focus\:text-white:focus {
     color: #fff;
+  }
+
+  .lg\:focus\:text-red:focus {
+    color: #b40021;
   }
 
   .lg\:focus\:text-primaryColor:focus {
@@ -28682,6 +29004,10 @@ header nav.secondary ul li img {
     background-color: #fff;
   }
 
+  .xl\:bg-red {
+    background-color: #b40021;
+  }
+
   .xl\:bg-primaryColor {
     background-color: #00adb5;
   }
@@ -28718,6 +29044,10 @@ header nav.secondary ul li img {
     background-color: #fff;
   }
 
+  .xl\:hover\:bg-red:hover {
+    background-color: #b40021;
+  }
+
   .xl\:hover\:bg-primaryColor:hover {
     background-color: #00adb5;
   }
@@ -28752,6 +29082,10 @@ header nav.secondary ul li img {
 
   .xl\:focus\:bg-white:focus {
     background-color: #fff;
+  }
+
+  .xl\:focus\:bg-red:focus {
+    background-color: #b40021;
   }
 
   .xl\:focus\:bg-primaryColor:focus {
@@ -28870,6 +29204,10 @@ header nav.secondary ul li img {
     border-color: #fff;
   }
 
+  .xl\:border-red {
+    border-color: #b40021;
+  }
+
   .xl\:border-primaryColor {
     border-color: #00adb5;
   }
@@ -28906,6 +29244,10 @@ header nav.secondary ul li img {
     border-color: #fff;
   }
 
+  .xl\:hover\:border-red:hover {
+    border-color: #b40021;
+  }
+
   .xl\:hover\:border-primaryColor:hover {
     border-color: #00adb5;
   }
@@ -28940,6 +29282,10 @@ header nav.secondary ul li img {
 
   .xl\:focus\:border-white:focus {
     border-color: #fff;
+  }
+
+  .xl\:focus\:border-red:focus {
+    border-color: #b40021;
   }
 
   .xl\:focus\:border-primaryColor:focus {
@@ -32016,6 +32362,26 @@ header nav.secondary ul li img {
     color: #fff;
   }
 
+  .xl\:placeholder-red::-webkit-input-placeholder {
+    color: #b40021;
+  }
+
+  .xl\:placeholder-red::-moz-placeholder {
+    color: #b40021;
+  }
+
+  .xl\:placeholder-red:-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .xl\:placeholder-red::-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .xl\:placeholder-red::placeholder {
+    color: #b40021;
+  }
+
   .xl\:placeholder-primaryColor::-webkit-input-placeholder {
     color: #00adb5;
   }
@@ -32194,6 +32560,26 @@ header nav.secondary ul li img {
 
   .xl\:focus\:placeholder-white:focus::placeholder {
     color: #fff;
+  }
+
+  .xl\:focus\:placeholder-red:focus::-webkit-input-placeholder {
+    color: #b40021;
+  }
+
+  .xl\:focus\:placeholder-red:focus::-moz-placeholder {
+    color: #b40021;
+  }
+
+  .xl\:focus\:placeholder-red:focus:-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .xl\:focus\:placeholder-red:focus::-ms-input-placeholder {
+    color: #b40021;
+  }
+
+  .xl\:focus\:placeholder-red:focus::placeholder {
+    color: #b40021;
   }
 
   .xl\:focus\:placeholder-primaryColor:focus::-webkit-input-placeholder {
@@ -32587,6 +32973,10 @@ header nav.secondary ul li img {
     color: #fff;
   }
 
+  .xl\:text-red {
+    color: #b40021;
+  }
+
   .xl\:text-primaryColor {
     color: #00adb5;
   }
@@ -32623,6 +33013,10 @@ header nav.secondary ul li img {
     color: #fff;
   }
 
+  .xl\:hover\:text-red:hover {
+    color: #b40021;
+  }
+
   .xl\:hover\:text-primaryColor:hover {
     color: #00adb5;
   }
@@ -32657,6 +33051,10 @@ header nav.secondary ul li img {
 
   .xl\:focus\:text-white:focus {
     color: #fff;
+  }
+
+  .xl\:focus\:text-red:focus {
+    color: #b40021;
   }
 
   .xl\:focus\:text-primaryColor:focus {

@@ -12,6 +12,11 @@ header {
 			li {
 				a {
 					@apply inline-block relative;
+
+					sup {
+						@apply absolute right-0 flex items-center justify-center w-5 h-5 bg-primaryColor text-xs text-white;
+						border-radius: 50%;
+					}
 				}
 			}
 		}

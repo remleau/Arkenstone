@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Switch, Route ,BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './utils/UserContext.js';
+import { ProjectProvider } from './utils/ProjectContext.js';
 
 import Login from './pages/Login';
 import Homepage from './pages/Homepage';
@@ -25,7 +26,9 @@ export default App;
 ReactDOM.render(
 <BrowserRouter>
     <UserProvider>
+    <ProjectProvider>
         <App /> 
+    </ProjectProvider>
     </UserProvider>
 </BrowserRouter>
 , document.getElementById('App'));
