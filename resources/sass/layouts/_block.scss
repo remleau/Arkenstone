@@ -2,4 +2,27 @@
   &__modal{
 		@apply absolute top-0 left-0 w-full h-full p-8 bg-primaryLightMedium z-30;
 	}
+
+	&__projet{
+		@apply transition-all duration-200;
+		background-size: cover;
+		background-position: center;
+		background-image: url("https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3334&q=80");
+		
+		@media (hover: hover) {
+			&:hover {
+				@apply shadow-lg;
+
+				button {
+					@apply bg-primaryColorHover;
+				}
+			}
+		}
+		
+		&-sub-infos{
+			p {
+				@apply text-sm1 text-white;
+			}
+		}
+	}
 }

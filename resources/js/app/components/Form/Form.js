@@ -31,7 +31,11 @@ const Form = (props) => {
       if(props.type == "project"){
         setProjects(prevProjects => [...prevProjects, {
           name: formData.name,
-          statut: formData.statut
+          statut: {
+            // Don't need to send the label
+            key: formData.statut,
+            label: formData.statut.charAt(0).toUpperCase() + formData.statut.slice(1)
+          }
         }])
       }
 

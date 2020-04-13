@@ -81176,16 +81176,18 @@ __webpack_require__.r(__webpack_exports__);
 
 var CardProject = function CardProject(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
-    className: "p-4 w-1/5"
+    className: "p-4 w-1/5 cursor-pointer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "projet relative h-64 rounded-md overflow-hidden flex items-end p-4"
+    className: "block__projet relative h-64 rounded-md overflow-hidden flex items-end p-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "overlay black"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "z-20"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: "z-20 h-full w-full flex flex-col justify-between"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "block__projet-sub-infos"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.statut)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     className: "pb-3 text-white"
-  }, props.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Voir le projet"))));
+  }, props.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Voir le projet")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (CardProject);
@@ -81274,7 +81276,11 @@ var Form = function Form(props) {
         setProjects(function (prevProjects) {
           return [].concat(_toConsumableArray(prevProjects), [{
             name: formData.name,
-            statut: formData.statut
+            statut: {
+              // Don't need to send the label
+              key: formData.statut,
+              label: formData.statut.charAt(0).toUpperCase() + formData.statut.slice(1)
+            }
           }]);
         });
       } // Delete data
@@ -82032,10 +82038,6 @@ var Projets = function Projets() {
       projects = _useContext2[0],
       setProjects = _useContext2[1];
 
-  var validated = function validated() {
-    console.log('allo');
-  };
-
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "page__projets"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -82062,11 +82064,11 @@ var Projets = function Projets() {
     type: "text",
     placeholder: "Statut du projet"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Ajouter"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex flex-wrap -mx-4"
+    className: "block__projets flex flex-wrap -mx-4"
   }, projects.map(function (project) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_CardProject__WEBPACK_IMPORTED_MODULE_6__["default"], {
       name: project.name,
-      statut: project.statut
+      statut: project.statut.label
     });
   })));
 };
@@ -82121,16 +82123,29 @@ var ProjectContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])
 var ProjectProvider = function ProjectProvider(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([{
     name: "allo1",
-    statut: "Open"
+    statut: {
+      key: 'open',
+      label: 'Open'
+    }
   }, {
     name: "allo2",
-    statut: "Closed"
+    statut: {
+      key: 'open',
+      label: 'Open'
+    } //statut: "Closed"
+
   }, {
     name: "allo3",
-    statut: "Pending"
+    statut: {
+      key: 'pending',
+      label: 'Pending'
+    }
   }, {
     name: "allo4",
-    statut: "Archive"
+    statut: {
+      key: 'archived',
+      label: 'Archived'
+    }
   }]),
       _useState2 = _slicedToArray(_useState, 2),
       projects = _useState2[0],

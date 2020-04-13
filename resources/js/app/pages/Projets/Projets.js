@@ -20,10 +20,6 @@ const Projets = () => {
 
   const [projects, setProjects] = useContext(ProjectContext);
 
-  const validated = () => {
-    console.log('allo')
-  }
-
   return (
     <div className="page__projets">
 
@@ -42,9 +38,9 @@ const Projets = () => {
         </Form>
       </Modal>
 
-      <div className="flex flex-wrap -mx-4">
+      <div className="block__projets flex flex-wrap -mx-4">
         {projects.map(project => (
-          <Project name={project.name} statut={project.statut} />
+          <Project name={project.name} statut={project.statut.label} />
         ))}
       </div>
 

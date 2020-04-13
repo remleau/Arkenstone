@@ -7,19 +7,32 @@ export const ProjectProvider = props => {
     const [projects, setProjects] = useState([
         {
             name: "allo1",
-            statut: "Open"
+            statut: {
+                key: 'open',
+                label: 'Open'
+            }
         },
         {
             name: "allo2",
-            statut: "Closed"
+            statut: {
+                key: 'open',
+                label: 'Open'
+            }
+            //statut: "Closed"
         },
         {
             name: "allo3",
-            statut: "Pending"
+            statut: {
+                key: 'pending',
+                label: 'Pending'
+            }
         },
         {
             name: "allo4",
-            statut: "Archive"
+            statut: {
+                key: 'archived',
+                label: 'Archived'
+            }
         }
     ]);
     

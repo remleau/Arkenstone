@@ -18,6 +18,8 @@ module.exports = {
       red: '#b40021',
 
       'primaryColor': '#00adb5',
+      'primaryColorHover': '#00a4ab',
+
       'primaryDark': '#222831',
       'primaryDarkMedium': '#393e46',
       'primaryLightMedium': '#ededed',
