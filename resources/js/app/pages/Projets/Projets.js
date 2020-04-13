@@ -18,7 +18,7 @@ const Projets = () => {
     setModal(false);
   }
 
-  const [projects, setProjects] = useContext(ProjectContext);
+  const [projects] = useContext(ProjectContext);
 
   return (
     <div className="page__projets">
@@ -39,8 +39,8 @@ const Projets = () => {
       </Modal>
 
       <div className="block__projets flex flex-wrap -mx-4">
-        {projects.map(project => (
-          <Project name={project.name} statut={project.statut.label} />
+        {projects.map((project, key) => (
+          <Project key={key} name={project.name} statut={project.statut.label} />
         ))}
       </div>
 

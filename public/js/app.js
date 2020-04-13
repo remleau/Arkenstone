@@ -82027,9 +82027,8 @@ var Projets = function Projets() {
   };
 
   var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_utils_ProjectContext_js__WEBPACK_IMPORTED_MODULE_1__["ProjectContext"]),
-      _useContext2 = _slicedToArray(_useContext, 2),
-      projects = _useContext2[0],
-      setProjects = _useContext2[1];
+      _useContext2 = _slicedToArray(_useContext, 1),
+      projects = _useContext2[0];
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "page__projets"
@@ -82058,8 +82057,9 @@ var Projets = function Projets() {
     placeholder: "Statut du projet"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Ajouter"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "block__projets flex flex-wrap -mx-4"
-  }, projects.map(function (project) {
+  }, projects.map(function (project, key) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_CardProject__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      key: key,
       name: project.name,
       statut: project.statut.label
     });
@@ -82156,11 +82156,11 @@ var ProjectProvider = function ProjectProvider(props) {
     console.log(e.invite);
     setProjects(function (prevProjects) {
       return [].concat(_toConsumableArray(prevProjects), [{
-        name: 'test live',
+        name: e.invite.name,
         statut: {
           // Don't need to send the label
-          key: 'live',
-          label: 'Live'
+          key: e.invite.statut.key,
+          label: e.invite.statut.label
         }
       }]);
     });

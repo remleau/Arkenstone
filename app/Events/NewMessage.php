@@ -14,7 +14,7 @@ class NewMessage implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $invite;
+    public $invite = '';
 
     /**
      * Create a new event instance.

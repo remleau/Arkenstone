@@ -11,7 +11,13 @@ class ProjectController extends Controller
 {
     public function create(Request $request)
     {
-        // broadcast(new NewMessage(response()->json($request, 201))->toOthers();
+        broadcast(new NewMessage([
+            'name' => $request->input('name'),
+            'statut' => [
+                'key' => $request->input('statut.key'),
+                'label' => $request->input('statut.label')
+            ]
+        ]))->toOthers();
         return response()->json($request, 201);
     }
 }

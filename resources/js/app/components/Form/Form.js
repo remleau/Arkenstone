@@ -49,6 +49,7 @@ const Form = (props) => {
               label: response.data.statut.label
             }
           }]);
+
         })
         // We can still use the `.catch()` method since axios is promise-based
         .catch(error => console.log(error));
