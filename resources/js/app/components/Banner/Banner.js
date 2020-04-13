@@ -1,14 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 const Banner = (props) => {
-
-  const [invite, setInvite] = useState(false);
-
-  window.Echo.channel('message')
-    .listen('.message.created', (e) => {
-      setInvite(e.invite);
-      console.log(e)
-    });
 
   return (
     <div>

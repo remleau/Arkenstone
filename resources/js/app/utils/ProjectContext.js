@@ -35,7 +35,20 @@ export const ProjectProvider = props => {
             }
         }
     ]);
-    
+
+    window.Echo.channel('message')
+    .listen('.message.created', (e) => {
+        console.log(e.invite)
+        setProjects(prevProjects => [...prevProjects, {
+          name: 'test live',
+          statut: {
+            // Don't need to send the label
+            key: 'live',
+            label: 'Live'
+          }
+        }]);
+    });
+
     return(
         <ProjectContext.Provider value={[projects, setProjects]}>
             {props.children}

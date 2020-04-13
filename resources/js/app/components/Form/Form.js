@@ -29,14 +29,30 @@ const Form = (props) => {
       formData = Object.fromEntries(formData.entries());
 
       if(props.type == "project"){
-        setProjects(prevProjects => [...prevProjects, {
-          name: formData.name,
-          statut: {
-            // Don't need to send the label
-            key: formData.statut,
-            label: formData.statut.charAt(0).toUpperCase() + formData.statut.slice(1)
-          }
-        }])
+        //API CALL
+        window.axios
+        // The API we're requesting data from
+        .post("/api/project/create", {
+          'name': formData.name,
+          'statut': {
+            'key': formData.statut,
+            'label': formData.statut.charAt(0).toUpperCase() + formData.statut.slice(1)
+          },
+        })
+        // Once we get a response, we'll map the API endpoints to our props
+        .then((response) => {
+          setProjects(prevProjects => [...prevProjects, {
+            name: response.data.name,
+            statut: {
+              // Don't need to send the label
+              key: response.data.statut,
+              label: response.data.statut.label
+            }
+          }]);
+        })
+        // We can still use the `.catch()` method since axios is promise-based
+        .catch(error => console.log(error));
+
       }
 
       // Delete data

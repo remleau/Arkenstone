@@ -21,7 +21,7 @@ class NewMessage implements ShouldBroadcastNow
      *
      * @return void
      */
-    public function __construct(string $invite)
+    public function __construct($invite)
     {
         $this->invite = $invite;
     }
@@ -45,4 +45,5 @@ class NewMessage implements ShouldBroadcastNow
     {
         return 'message.created';
     }
+
 }
