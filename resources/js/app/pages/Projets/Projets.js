@@ -4,8 +4,9 @@ import { ProjectContext } from './../../utils/ProjectContext.js';
 import Banner from './../../components/Banner';
 import Modal from './../../components/Modal';
 import UserCan from './../../components/Permissions';
-import {Form, Input, Select} from './../../components/Form';
+import {Form, Input, Select, Textarea} from './../../components/Form';
 import Project from './../../components/CardProject';
+import reglages from './../../../../../public/images/svg/icon-cog.svg';
 
 const Projets = () => {
 
@@ -26,13 +27,17 @@ const Projets = () => {
       <div className="flex items-center justify-between pb-8">
         <Banner pageTitle="Projets" />
         <UserCan>
-          <button onClick={showModal}>Ajouter un projet</button>
+          <div className="flex items-center">
+            <button onClick={showModal}>Ajouter un projet</button>
+            <button className="ml-2"><img className="w-5" src={reglages} alt="Réglages" /></button>
+          </div>
         </UserCan>
       </div>
 
       <Modal show={modal} hide={closeModal} title="Ajouter un projet">
         <Form action="someurltopost" type="project">
           <Input label="Nom du projet*" name="name" type="text" required="required" />
+          <Textarea label="Description du projet*" name="description" required="required" />
           <Select label="Statut du projet*" name="statut" options={['Ouvert','Attente','Fermé','Archivé']} />
           <button>Ajouter</button>
         </Form>

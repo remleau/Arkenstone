@@ -81731,6 +81731,17 @@ module.exports = yeast;
 
 /***/ }),
 
+/***/ "./public/images/svg/icon-cog.svg":
+/*!****************************************!*\
+  !*** ./public/images/svg/icon-cog.svg ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/icon-cog.svg?48cf506f83c053da01f2ef7125043efd";
+
+/***/ }),
+
 /***/ "./public/images/svg/icon-notification.svg":
 /*!*************************************************!*\
   !*** ./public/images/svg/icon-notification.svg ***!
@@ -82118,9 +82129,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var Textarea = function Textarea(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: ""
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, props.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: props.type,
+    className: "pb-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    className: "block pb-1 uppercase text-sm1"
+  }, props.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+    className: (props.required ? 'required' : '') + " block w-full",
     name: props.name
   }));
 };
@@ -82322,6 +82335,7 @@ var Modal = function Modal(props) {
     onClick: props.hide,
     className: "btn_close"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    "class": "w-5",
     src: _public_images_svg_icon_x_circle_svg__WEBPACK_IMPORTED_MODULE_1___default.a,
     alt: "Close"
   }))), props.children);
@@ -82838,6 +82852,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Permissions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../components/Permissions */ "./resources/js/app/components/Permissions/index.js");
 /* harmony import */ var _components_Form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../components/Form */ "./resources/js/app/components/Form/index.js");
 /* harmony import */ var _components_CardProject__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../components/CardProject */ "./resources/js/app/components/CardProject/index.js");
+/* harmony import */ var _public_images_svg_icon_cog_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../../../../public/images/svg/icon-cog.svg */ "./public/images/svg/icon-cog.svg");
+/* harmony import */ var _public_images_svg_icon_cog_svg__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_public_images_svg_icon_cog_svg__WEBPACK_IMPORTED_MODULE_7__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -82849,6 +82865,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -82882,9 +82899,17 @@ var Projets = function Projets() {
     className: "flex items-center justify-between pb-8"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Banner__WEBPACK_IMPORTED_MODULE_2__["default"], {
     pageTitle: "Projets"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Permissions__WEBPACK_IMPORTED_MODULE_4__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Permissions__WEBPACK_IMPORTED_MODULE_4__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex items-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: showModal
-  }, "Ajouter un projet"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, "Ajouter un projet"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "ml-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "w-5",
+    src: _public_images_svg_icon_cog_svg__WEBPACK_IMPORTED_MODULE_7___default.a,
+    alt: "R\xE9glages"
+  }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
     show: modal,
     hide: closeModal,
     title: "Ajouter un projet"
@@ -82895,6 +82920,10 @@ var Projets = function Projets() {
     label: "Nom du projet*",
     name: "name",
     type: "text",
+    required: "required"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Form__WEBPACK_IMPORTED_MODULE_5__["Textarea"], {
+    label: "Description du projet*",
+    name: "description",
     required: "required"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Form__WEBPACK_IMPORTED_MODULE_5__["Select"], {
     label: "Statut du projet*",

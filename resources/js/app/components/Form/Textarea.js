@@ -3,11 +3,11 @@ import React from "react";
 const Textarea = (props) => {
 
   return (
-    <div className="">
-			<label>
+		<div className="pb-4">
+			<label className="block pb-1 uppercase text-sm1">
 				{props.label}
 			</label>
-			<input type={props.type} name={props.name} />
+			<textarea className={(props.required ? 'required' : '') + " block w-full"} name={props.name} ></textarea>
     </div>
   );
 }
