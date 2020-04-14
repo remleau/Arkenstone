@@ -4,7 +4,7 @@ import { ProjectContext } from './../../utils/ProjectContext.js';
 import Banner from './../../components/Banner';
 import Modal from './../../components/Modal';
 import UserCan from './../../components/Permissions';
-import Form from './../../components/Form';
+import {Form, Input, Select} from './../../components/Form';
 import Project from './../../components/CardProject';
 
 const Projets = () => {
@@ -32,8 +32,8 @@ const Projets = () => {
 
       <Modal show={modal} hide={closeModal} title="Ajouter un projet">
         <Form action="someurltopost" type="project">
-          <input className="required" name="name" type="text" placeholder="Nom du projet" />
-          <input className="required" name="statut" type="text" placeholder="Statut du projet" />
+          <Input label="Nom du projet*" name="name" type="text" required="required" />
+          <Select label="Statut du projet*" name="statut" options={['Ouvert','Attente','Fermé','Archivé']} />
           <button>Ajouter</button>
         </Form>
       </Modal>

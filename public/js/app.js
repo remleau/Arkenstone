@@ -82003,18 +82003,23 @@ var Form = function Form(props) {
     if (validation) {
       formData = new FormData(form);
       formData = Object.fromEntries(formData.entries());
+      console.log(formData);
 
       if (props.type == "project") {
-        var postProjects = Object(_utils__WEBPACK_IMPORTED_MODULE_2__["postData"])("/api/project/create", {
+        Object(_utils__WEBPACK_IMPORTED_MODULE_2__["postData"])("/api/project/create", {
           name: formData.name,
           statut: {
             key: formData.statut,
             label: formData.statut.charAt(0).toUpperCase() + formData.statut.slice(1)
           }
-        }).then(function (project) {
-          setProjects(function (prevProjects) {
-            return [].concat(_toConsumableArray(prevProjects), [project]);
-          });
+        }).then(function (response) {
+          if (response.status == 201) {
+            setProjects(function (prevProjects) {
+              return [].concat(_toConsumableArray(prevProjects), [response.data]);
+            });
+          } else {
+            console.log(response);
+          }
         });
       } // Delete data
 
@@ -82036,17 +82041,118 @@ var Form = function Form(props) {
 
 /***/ }),
 
-/***/ "./resources/js/app/components/Form/index.js":
+/***/ "./resources/js/app/components/Form/Input.js":
 /*!***************************************************!*\
-  !*** ./resources/js/app/components/Form/index.js ***!
+  !*** ./resources/js/app/components/Form/Input.js ***!
   \***************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Input = function Input(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pb-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    className: "block pb-1 uppercase text-sm1"
+  }, props.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: (props.required ? 'required' : '') + " block w-full",
+    type: props.type,
+    name: props.name
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Input);
+
+/***/ }),
+
+/***/ "./resources/js/app/components/Form/Select.js":
+/*!****************************************************!*\
+  !*** ./resources/js/app/components/Form/Select.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Select = function Select(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pb-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    className: "block pb-1 uppercase text-sm1"
+  }, props.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    className: "block w-full",
+    name: props.name
+  }, props.options.map(function (option, key) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      value: option.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(),
+      key: key
+    }, option);
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Select);
+
+/***/ }),
+
+/***/ "./resources/js/app/components/Form/Textarea.js":
+/*!******************************************************!*\
+  !*** ./resources/js/app/components/Form/Textarea.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Textarea = function Textarea(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: ""
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, props.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: props.type,
+    name: props.name
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Textarea);
+
+/***/ }),
+
+/***/ "./resources/js/app/components/Form/index.js":
+/*!***************************************************!*\
+  !*** ./resources/js/app/components/Form/index.js ***!
+  \***************************************************/
+/*! exports provided: Form, Input, Select, Textarea */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form */ "./resources/js/app/components/Form/Form.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _Form__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Form", function() { return _Form__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _Input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Input */ "./resources/js/app/components/Form/Input.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Input", function() { return _Input__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony import */ var _Select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Select */ "./resources/js/app/components/Form/Select.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Select", function() { return _Select__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+/* harmony import */ var _Textarea__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Textarea */ "./resources/js/app/components/Form/Textarea.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Textarea", function() { return _Textarea__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+
+
+
+
 
 
 
@@ -82211,7 +82317,7 @@ var Modal = function Modal(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     className: "block__modal " + (props.show ? 'block' : 'hidden')
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex items-center justify-between"
+    className: "flex items-center justify-between pb-4"
   }, props.title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, props.title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: props.hide,
     className: "btn_close"
@@ -82782,19 +82888,18 @@ var Projets = function Projets() {
     show: modal,
     hide: closeModal,
     title: "Ajouter un projet"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Form__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Form__WEBPACK_IMPORTED_MODULE_5__["Form"], {
     action: "someurltopost",
     type: "project"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    className: "required",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Form__WEBPACK_IMPORTED_MODULE_5__["Input"], {
+    label: "Nom du projet*",
     name: "name",
     type: "text",
-    placeholder: "Nom du projet"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    className: "required",
+    required: "required"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Form__WEBPACK_IMPORTED_MODULE_5__["Select"], {
+    label: "Statut du projet*",
     name: "statut",
-    type: "text",
-    placeholder: "Statut du projet"
+    options: ['Ouvert', 'Attente', 'Fermé', 'Archivé']
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Ajouter"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "block__projets flex flex-wrap -mx-4"
   }, projects.map(function (project, key) {
@@ -82997,21 +83102,17 @@ var postData = /*#__PURE__*/function () {
             return window.axios // The API we're requesting data from
             .post(url, data) // Once we get a response, we'll map the API endpoints to our props
             .then(function (response) {
-              return response.data;
+              return response;
             }) // We can still use the `.catch()` method since axios is promise-based
             ["catch"](function (error) {
-              return error;
+              return error.response;
             });
 
           case 2:
             response = _context.sent;
-            _context.next = 5;
-            return response;
+            return _context.abrupt("return", response);
 
-          case 5:
-            return _context.abrupt("return", _context.sent);
-
-          case 6:
+          case 4:
           case "end":
             return _context.stop();
         }

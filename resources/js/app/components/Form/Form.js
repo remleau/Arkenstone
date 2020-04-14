@@ -29,17 +29,23 @@ const Form = (props) => {
       formData = new FormData(form);
       formData = Object.fromEntries(formData.entries());
 
-      if(props.type == "project"){
+      console.log(formData)
 
-        const postProjects = postData("/api/project/create", {
+      if(props.type == "project"){ 
+
+        postData("/api/project/create", {
           name: formData.name,
           statut: {
             key: formData.statut,
             label: formData.statut.charAt(0).toUpperCase() + formData.statut.slice(1)
           }
-        }).then(project=>{
-          setProjects(prevProjects => [...prevProjects , project])
-        })
+        }).then(response=>{
+          if(response.status == 201){
+            setProjects(prevProjects => [...prevProjects , response.data])
+          }else{
+            console.log(response);
+          }
+        });
 
       }
 
@@ -50,6 +56,7 @@ const Form = (props) => {
 
       form.parentElement.querySelector('.block__modal .btn_close').click();
       console.log('validated')
+
     }
   }
 

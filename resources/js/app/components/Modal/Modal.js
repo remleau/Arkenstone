@@ -7,7 +7,7 @@ const Modal = (props) => {
 
   return (
     <section className={"block__modal " + (props.show ? 'block' : 'hidden')}>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between pb-4">
         {props.title ? <h2>{props.title}</h2> : null}
         <button onClick={props.hide} className="btn_close">
           <img src={close} alt="Close" />
