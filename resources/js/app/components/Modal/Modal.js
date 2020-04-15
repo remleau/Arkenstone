@@ -10,7 +10,7 @@ const Modal = (props) => {
       <div className="flex items-center justify-between pb-4">
         {props.title ? <h2>{props.title}</h2> : null}
         <button onClick={props.hide} className="btn_close">
-          <img class="w-5" src={close} alt="Close" />
+          <img className="w-5" src={close} alt="Close" />
         </button>
       </div>
       {props.children}

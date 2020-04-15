@@ -5,10 +5,10 @@ import Banner from './../../components/Banner';
 import Modal from './../../components/Modal';
 import UserCan from './../../components/Permissions';
 import {Form, Input, Select, Textarea} from './../../components/Form';
-import Project from './../../components/CardProject';
+import ProjectCard from './../../components/CardProject';
 import reglages from './../../../../../public/images/svg/icon-cog.svg';
 
-const Projets = () => {
+const Projets = (props) => {
 
   const [modal, setModal] = useState(false);
   const showModal = () => {
@@ -45,7 +45,7 @@ const Projets = () => {
 
       <div className="block__projets flex flex-wrap -mx-4">
         {projects.map((project, key) => (
-          <Project key={key} name={project.name} statut={project.statut.label} />
+          <ProjectCard url={props.url} slug={project.name} key={key} name={project.name} statut={project.statut.label} />
         ))}
       </div>
 

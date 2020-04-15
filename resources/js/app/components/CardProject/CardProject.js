@@ -1,9 +1,10 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
 
 const CardProject = (props) => {
 
   return (
-    <article className="p-4 w-1/5 cursor-pointer">
+    <NavLink to={props.url + '/' + props.slug} className="p-4 w-1/5 cursor-pointer">
       <div className="block__projet relative h-64 rounded-md overflow-hidden flex items-end p-4">
         <div className="overlay black"></div>
         <div className="z-20 h-full w-full flex flex-col justify-between">
@@ -16,7 +17,7 @@ const CardProject = (props) => {
           </div>
         </div>
       </div>
-    </article>
+    </NavLink>
   );
 }
 
