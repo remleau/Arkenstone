@@ -19,9 +19,36 @@
 			}
 		}
 		
-		&-sub-infos{
+		&-sub-infos {
+			@apply flex justify-between;
+
 			p {
 				@apply text-sm1 text-white;
+			}
+		}
+	}
+
+	&__card {
+		&-employe {
+			@apply relative w-6 h-6 flex items-center justify-center bg-primaryLightMedium border border-primaryDark;
+			border-radius: 50%;
+			margin: -3%;
+
+			@media (hover: hover) {
+				&:hover {
+					span{
+						@apply opacity-100 visible;
+					}
+				}
+			}
+
+			p {
+				@apply text-sm1 font-semibold text-primaryDarkMedium;
+			}
+
+			span {
+				@apply opacity-0 invisible absolute right-0 block bg-white px-2 py-1 rounded text-sm font-medium transition-all duration-200;
+				bottom: -2.25rem;
 			}
 		}
 	}

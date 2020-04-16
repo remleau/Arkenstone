@@ -8,15 +8,15 @@ import user from './../../../../../public/images/svg/icon-user.svg';
 
 const Header = () => {
 
-  const [projects, setProjects] = useContext(ProjectContext);
+  const [projects] = useContext(ProjectContext);
 
   return (
     <header>
       <nav className="primary">
         <ul>
           <li><NavLink to={'/dashboard'} exact activeClassName='is-active'>Dashboard</NavLink></li>
-          <li><NavLink to={'/dashboard/projets'} activeClassName='is-active'>Projets ({projects.length})</NavLink></li>
-          <li><NavLink to={'/dashboard/employes'} activeClassName='is-active'>Employés</NavLink></li>
+          <li><NavLink to={'/projets'} activeClassName='is-active'>Projets ({projects.length})</NavLink></li>
+          <li><NavLink to={'/employes'} activeClassName='is-active'>Employés</NavLink></li>
         </ul>
       </nav>
       <nav className="secondary">

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
 
-const SingleProjet = ({match, location}) => {
+const SingleProjet = () => {
 
   let { slug } = useParams();
 
