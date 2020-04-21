@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
 import { UserContext } from './../../utils/UserContext.js';
+import { useCookies } from 'react-cookie';
 
 const Logout = () => {
 
-  const { setIsLoggedIn } = useContext(UserContext);
+  const [cookies, removeCookie] = useCookies();
+  const { setIsLoggedIn, setUser } = useContext(UserContext);
 
   const logout = () => {
+    removeCookie('user', {path: '/'});
+    setUser(false)
     setIsLoggedIn(false)
   }
 

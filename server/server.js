@@ -1,10 +1,17 @@
 const express = require('express');
 const app = express();
 require('dotenv').config();
+const cors = require('cors');
 const bodyParser = require('body-parser');
+// require('./Database.js').init();
+
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 
 const port = process.env.PORT || 5000;
 const env = process.env.ENV || 'development';
+
+app.use(cors());
 
 // support parsing of application/json type post data
 app.use(bodyParser.json());
@@ -28,8 +35,18 @@ if (env == 'production'){
 	});
 }
 
-app.listen(port, (err) => {
-	if(err) throw err;
+// Socket.IO
+app.get('/', (req, res) => {
+	res.sendFile(__dirname + '/index.html');
+});
+
+io.on('connection', (socket) => {
+	console.log('a user connected');
+	socket.emit('news', { hello: 'world' });
+});
+
+http.listen(port, (err) => {
+	if (err) throw err;
 
 	console.log(env + " server started")
 });

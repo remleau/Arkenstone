@@ -4,7 +4,7 @@ import { postData } from './../../utils';
 
 const Form = (props) => {
 
-  const [projects, setProjects] = useContext(ProjectContext);
+  const [setProjects] = useContext(ProjectContext);
 
   const validation = (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ const Form = (props) => {
 
       console.log(formData)
 
-      if(props.type == "project"){ 
+      if(props.type === "project"){ 
 
         postData(props.action , {
           name: formData.name,

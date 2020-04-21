@@ -5,7 +5,7 @@ const Permissions = ({ perm, children }) => {
 
   const { user } = useContext(UserContext);
 
-  if(user.role != 'admin') {
+  if(user && user.role != 'admin') {
     return (null);
   }
 

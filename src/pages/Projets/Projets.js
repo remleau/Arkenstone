@@ -30,7 +30,6 @@ const Projets = (props) => {
     setModalSettings(!modalSettings);
   }
 
-
   return (
     <div className="page__projets">
 

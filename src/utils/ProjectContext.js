@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect } from 'react';
+import React, { useState, createContext } from 'react';
 
 export const ProjectContext = createContext();
 
@@ -10,28 +10,6 @@ export const ProjectProvider = props => {
             statut: {
                 key: 'open',
                 label: 'Open'
-            }
-        },
-        {
-            name: "allo2",
-            statut: {
-                key: 'open',
-                label: 'Open'
-            }
-            //statut: "Closed"
-        },
-        {
-            name: "allo3",
-            statut: {
-                key: 'pending',
-                label: 'Pending'
-            }
-        },
-        {
-            name: "allo4",
-            statut: {
-                key: 'archived',
-                label: 'Archived'
             }
         }
     ]);

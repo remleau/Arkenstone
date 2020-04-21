@@ -1,49 +1,37 @@
 import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import { UserContext } from './../../utils/UserContext.js';
+import { postData } from './../../utils';
+import { useCookies } from 'react-cookie';
 
 const Login = (props) => {
 
+  const [cookies, setCookie] = useCookies();
   const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
 
-  const [redirect, setRedirect] = useState(false);
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
   const connectUser = () => {
     if(username && password){
 
-      //API CALL
-      window.axios
-        // The API we're requesting data from
-        .post("/api/auth/login", {
-          'username': username,
-          'password': password,
-        })
-        // Once we get a response, we'll map the API endpoints to our props
-        .then((response) => {
+      // API CALL
+      postData("http://localhost:5000/api/user/login", {
+        'username': username,
+        'password': password,
+      }).then(response => {
+        if (response.status == 200) {
+          setCookie('user', response.data, { path: '/' });
           setIsLoggedIn(true);
-          setRedirect(true);
-          console.log(response.data)
-        })
-        // Let's make sure to change the loading state to display the data
-        .then(users => {
-          // this.setState({
-          //   users,
-          //   isLoading: false
-          // });
-        })
-        // We can still use the `.catch()` method since axios is promise-based
-        .catch(error => console.log(error));
+        } else {
+          console.log(response);
+        }
+      });
+
     }
   }
 
-  const connectGuest = () => {
-    setIsLoggedIn(true);
-    setRedirect(true);
-  }
-
-  if (redirect || isLoggedIn){
+  if (isLoggedIn){
     return (
       <Redirect to={"/dashboard"} />
     )
@@ -57,8 +45,7 @@ const Login = (props) => {
           <input type="text" name="username" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
           <input type="password" name="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
           <div className="flex">
-            <button className="mr-2" onClick={connectUser}>Connect</button>
-            <button className="ml-2" onClick={connectGuest}>Continu as guest</button>
+            <button onClick={connectUser}>Connect</button>
           </div>
         </div>
       </div>

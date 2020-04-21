@@ -14,7 +14,7 @@ module.exports = (req, res, next) => {
 		});
 	}else {
 		res.status(401).send({
-			error: "No token"
+			error: "Aucun token"
 		});
 	}
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route  } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import Dashboard from './../Dashboard';
 import PageProjets from './../Projets';
@@ -11,7 +11,7 @@ import SingleProjet from './../SingleProjet';
 import Header from './../../components/Header';
 import Sidebar from './../../components/Sidebar';
 
-const Homepage = () => {
+const Homepage = (props) => {
 
   return (
     <React.Fragment>
@@ -20,7 +20,7 @@ const Homepage = () => {
           <Header />
           <div className="relative h-screen pb-20 p-8 overflow-auto">
             <Switch>
-              <Route exact path='/dashboard' component={Dashboard} />
+              <Route exact path='/dashboard' render={props => <Dashboard />} />
               <Route exact path='/projets' render={ props => <PageProjets url="/projets" /> } />
               <Route exact path='/projets/:id' render={ props => <SingleProjet /> } />
               <Route exact path='/employes' render={ props => <PageEmployes url="/employes" /> } />
