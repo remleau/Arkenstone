@@ -24,7 +24,7 @@ const Login = (props) => {
           setCookie('user', response.data, { path: '/' });
           setIsLoggedIn(true);
         } else {
-          console.log(response);
+          console.log(response.data);
         }
       });
 

@@ -29,16 +29,19 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   console.log('app ' + isLoggedIn)
 
   return (
-    <Route {...rest} render={
-      props => {
-        if (isLoggedIn) {
-          return <Component {...rest} {...props} />
-        } else {
-          return <Redirect to={"/login"} />
-        }
+    <Route
+      {...rest}
+      render={props =>
+        isLoggedIn
+          ? (
+            <Component {...props} />
+          ) : (
+            <Redirect to="/login" />
+          )
       }
-    } />
-  )
+    />
+  );
+
 }
 
 export default App;

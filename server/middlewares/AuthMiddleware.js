@@ -2,6 +2,9 @@ const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
 
+	// If route login let it pass
+	if (req.path == '/api/user/login') return next();
+
 	// Headers for the token
 	const token = req.body.token;
 
@@ -14,7 +17,7 @@ module.exports = (req, res, next) => {
 		});
 	}else {
 		res.status(401).send({
-			error: "Aucun token"
+			error: "Aucun token envoyé"
 		});
 	}
 

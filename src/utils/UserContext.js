@@ -9,10 +9,10 @@ export const UserProvider = props => {
     const [cookies, removeCookie] = useCookies();
     const [user, setUser] = useState();
 
-    const [isLoggedIn, setIsLoggedIn] = useState(cookies.user.token ? true : false);
+    const [isLoggedIn, setIsLoggedIn] = useState(cookies.user ? true : false);
 
     useEffect(()=>{
-        if (cookies.user.token){
+        if (cookies.user){
             postData("http://localhost:5000/api/user/me", {
                 'token': cookies.user.token,
             }).then(response => {
