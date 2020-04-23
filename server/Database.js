@@ -16,14 +16,23 @@ const database = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process
 const User = models.UserModel(database, Sequelize);
 
 const init = async () => {
-	await database.sync(/*{ force: true }*/) // force true will drop the table if it already exists
-	.then(() => User.create({
-		firstName: 'Rémy',
-		lastName: 'Groleau',
-		username: 'remleau',
-		email: 'remleau@gmail.com',
-		password: bcrypt.hashSync('allo1234', 8)
-	}));
+	await database.sync({ force: true }) // force true will drop the table if it already exists
+	.then(() => {
+		User.create({
+			firstName: 'Rémy',
+			lastName: 'Groleau',
+			username: 'remleau',
+			email: 'remleau@gmail.com',
+			password: bcrypt.hashSync('allo1234', 8)
+		});
+		User.create({
+			firstName: 'testname',
+			lastName: 'testlastname',
+			username: 'test',
+			email: 'test@test.test',
+			password: bcrypt.hashSync('test', 8)
+		})
+	});
 	console.log('Tables have synced!')
 }
 

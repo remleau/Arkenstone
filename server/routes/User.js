@@ -48,34 +48,33 @@ router.post('/login', function (req, res) {
 		User.findOne({ where: { username: username } })
 		.then((user) => {
 			if (!user) {
-				res.send({ error: "Une erreur est survenue" });
-			}
+				res.status(404).send({ error: "Une erreur est survenue" });
+			}else {
+				let passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
+				if (!passwordIsValid) {
+					res.status(401).send({ error: "Mot de passe ou username invalide" });
+				}
 
-			let passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
-			if (!passwordIsValid) {
-				return res.status(401).send({ error: "Mot de passe ou username invalide" });
-			}
-
-			req.io.on('connection', (socket) => {
-				socket.emit('user_connected', {
-					firstName: user.firstName,
-					lastName: user.lastName
+				req.io.on('connection', (socket) => {
+					socket.emit('user_connected', {
+						firstName: user.firstName,
+						lastName: user.lastName
+					});
 				});
-			});
 
-			let token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-				expiresIn: "1d" // expires in 24 hours
-			});
+				let token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+					expiresIn: "1d" // expires in 24 hours
+				});
 
-			res.status(200).send({
-				firstName: user.firstName,
-				lastName: user.lastName,
-				username: user.username,
-				email: user.email,
-				role: "admin",
-				token: token
-			});
-
+				res.status(200).send({
+					firstName: user.firstName,
+					lastName: user.lastName,
+					username: user.username,
+					email: user.email,
+					role: "admin",
+					token: token
+				});
+			}
 		}).catch((err) => {
 			res.status(500).send({ error: "Une erreur est survenue" });
 		});
