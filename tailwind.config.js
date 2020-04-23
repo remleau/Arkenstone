@@ -16,6 +16,7 @@ module.exports = {
       black: '#000',
       white: '#fff',
       red: '#b40021',
+      error: '#b40021',
 
       'primaryColor': '#00adb5',
       'primaryColorHover': '#00a4ab',

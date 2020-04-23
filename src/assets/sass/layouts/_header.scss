@@ -1,5 +1,5 @@
 header {
-	@apply ml-auto flex items-center justify-between px-4 border-b;
+	@apply flex justify-between ml-auto px-4 border-b;
 
 	border-color: darken(#f5f5f5, 3%);
 
@@ -8,7 +8,7 @@ header {
 		font-family: 'Lato', sans-serif;
 		
 		ul{
-			@apply flex;
+			@apply flex items-center;
 			li {
 				a {
 					@apply inline-block relative;
@@ -45,6 +45,8 @@ header {
 	}
 
 	nav.secondary {
+		@apply flex;
+		
 		ul {
 			li {
 				img {

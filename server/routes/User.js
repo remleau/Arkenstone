@@ -16,9 +16,17 @@ router.post('/me', function (req, res) {
 
 		User.findOne({ where: { id: user.id } })
 			.then((user) => {
-				if (!user) res.send({ error: "Une erreur est survenue" });
+				if (!user) res.status(404).send({ error: "Une erreur est survenue" });
 
-				res.send({
+				req.io.on('connection', (socket) => {
+					console.log(socket.adapter.rooms)
+					socket.emit('user_connected', {
+						firstName: user.firstName,
+						lastName: user.lastName
+					});
+				});
+
+				res.status(200).send({
 					firstName: user.firstName,
 					lastName: user.lastName,
 					username: user.username,
@@ -48,11 +56,23 @@ router.post('/login', function (req, res) {
 				return res.status(401).send({ error: "Mot de passe ou username invalide" });
 			}
 
+			req.io.on('connection', (socket) => {
+				socket.emit('user_connected', {
+					firstName: user.firstName,
+					lastName: user.lastName
+				});
+			});
+
 			let token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
 				expiresIn: "1d" // expires in 24 hours
 			});
 
 			res.status(200).send({
+				firstName: user.firstName,
+				lastName: user.lastName,
+				username: user.username,
+				email: user.email,
+				role: "admin",
 				token: token
 			});
 
@@ -73,9 +93,9 @@ router.post('/create', function (req, res) {
 		username: req.body.username,
 		password: req.body.password,
 	}).then(user => {
-		res.send({ user });
+		res.status(201).send({ user });
 	}).catch((err) => {
-		res.send({ err });
+		res.status(401).send({ err });
 	});
 });
 

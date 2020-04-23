@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ProjectContext } from './../../utils/ProjectContext.js';
+import { UserContext } from './../../utils/UserContext.js';
 
-import bell from './../../assets/images/icon-notification.svg';
-import search from './../../assets/images/icon-search.svg';
-import user from './../../assets/images/icon-user.svg';
+import ico_bell from './../../assets/images/icon-notification.svg';
+import ico_search from './../../assets/images/icon-search.svg';
+import ico_user from './../../assets/images/icon-user.svg';
 
 const Header = () => {
 
+  const { user } = useContext(UserContext);
   const [projects] = useContext(ProjectContext);
 
   return (
@@ -21,9 +23,16 @@ const Header = () => {
       </nav>
       <nav className="secondary">
         <ul>
-          <li><img src={bell} alt="notification" /></li>
-          <li><img src={search} alt="notification" /></li>
-          <li><img src={user} alt="user" /></li>
+          <li><img src={ico_bell} alt="notification" /></li>
+          <li><img src={ico_search} alt="notification" /></li>
+          <li>
+            <NavLink to={'/profile'} activeClassName='is-active' className="flex">
+              <img src={ico_user} alt="user" />
+              <div>
+                <p className="text-sm1">{user && user.firstName + ' ' + user.lastName}</p>
+              </div>
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

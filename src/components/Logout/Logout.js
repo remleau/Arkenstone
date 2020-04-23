@@ -4,12 +4,13 @@ import { useCookies } from 'react-cookie';
 
 const Logout = () => {
 
-  const [cookies, removeCookie] = useCookies();
-  const { setIsLoggedIn, setUser } = useContext(UserContext);
+  const [cookies, setCookie, removeCookie] = useCookies();
+  const { setIsLoggedIn, setUser, setUsers } = useContext(UserContext);
 
   const logout = () => {
     removeCookie('user', {path: '/'});
     setUser(false)
+    setUsers([])
     setIsLoggedIn(false)
   }
 

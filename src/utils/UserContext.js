@@ -8,20 +8,19 @@ export const UserProvider = props => {
 
     const [cookies, removeCookie] = useCookies();
     const [user, setUser] = useState();
+    const [users, setUsers] = useState([]);
 
     const [isLoggedIn, setIsLoggedIn] = useState(cookies.user ? true : false);
 
     useEffect(()=>{
         if (cookies.user){
             postData("http://localhost:5000/api/user/me", {
-                'token': cookies.user.token,
+                'token': cookies.user,
             }).then(response => {
                 if (response.status == 200) {
                     setUser(response.data);
                     setIsLoggedIn(true);
-                    console.log(response.data);
                 } else {
-                    removeCookie('user', { path: '/' });
                     setUser(false);
                     setIsLoggedIn(false);
                 }
@@ -30,7 +29,7 @@ export const UserProvider = props => {
     }, []);
 
     return(
-        <UserContext.Provider value={{user, setUser, isLoggedIn, setIsLoggedIn}}>
+        <UserContext.Provider value={{ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers}}>
             {props.children}
         </UserContext.Provider>
     );

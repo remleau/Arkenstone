@@ -4,18 +4,23 @@ require('dotenv').config();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const AuthMiddleware = require('./middlewares/AuthMiddleware');
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
 // require('./Database.js').init();
 
 const port = process.env.PORT || 5000;
 const env = process.env.ENV || 'development';
 
+const server = app.listen(port);
+const io = require('socket.io')(server);
+
 // Middlewares
 app.use(cors());
 app.use(bodyParser.json()); // support parsing of application/json type post data
 app.use(bodyParser.urlencoded({ extended: true })); // support parsing of application/x-www-form-urlencoded post data
-app.all('/api/*', AuthMiddleware);
+app.use(function (req, res, next) {
+	req.io = io;
+	next();
+});
+app.use(AuthMiddleware);
 
 // Routes
 app.use('/api', require('./routes'));
@@ -28,19 +33,3 @@ if (env == 'production'){
 		res.sendFile('index.html', { root });
 	});
 }
-
-// Socket.IO
-app.get('/', (req, res) => {
-	res.sendFile(__dirname + '/index.html');
-});
-
-io.on('connection', (socket) => {
-	console.log('a user connected');
-	socket.emit('news', { hello: 'world' });
-});
-
-http.listen(port, (err) => {
-	if (err) throw err;
-
-	console.log(env + " server started")
-});

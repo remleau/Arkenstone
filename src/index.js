@@ -14,7 +14,7 @@ const App = () => {
   return (
     <main className="bg-primaryLight">
       <Switch>
-        <Route exact path='/login' render={(props) => <Login {...props} agencyName="Wink Strategies" />} />
+        <Route exact path='/' render={(props) => <Login {...props} agencyName="Wink Strategies" />} />
         <PrivateRoute path={'/'} component={Homepage} />
         <Route component={Page404} />
       </Switch>
@@ -26,8 +26,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 
   const { isLoggedIn } = useContext(UserContext);
 
-  console.log('app ' + isLoggedIn)
-
   return (
     <Route
       {...rest}
@@ -36,7 +34,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
           ? (
             <Component {...props} />
           ) : (
-            <Redirect to="/login" />
+            <Redirect to="/" />
           )
       }
     />

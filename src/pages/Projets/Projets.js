@@ -4,13 +4,14 @@ import { ProjectContext } from './../../utils/ProjectContext.js';
 import Banner from './../../components/Banner';
 import Modal from './../../components/Modal';
 import UserCan from './../../components/Permissions';
-import {Form, Input, Select, Textarea} from './../../components/Form';
+import { Form, Input, Select, Textarea } from './../../components/Form';
+import { postData } from './../../utils';
 import ProjectCard from './../../components/CardProject';
 import reglages from './../../assets/images/icon-cog.svg';
 
 const Projets = (props) => {
 
-  const [projects] = useContext(ProjectContext);
+  const [projects, setProjects] = useContext(ProjectContext);
   const [modalProject, setModalProject] = useState(false);
   const [modalSettings, setModalSettings] = useState(false);
 
@@ -30,6 +31,23 @@ const Projets = (props) => {
     setModalSettings(!modalSettings);
   }
 
+  const validated = (data) => {
+    postData('http://localhost:5000/api/project/create', {
+      name: data.name,
+      statut: {
+        key: data.statut,
+        label: data.statut.charAt(0).toUpperCase() + data.statut.slice(1)
+      }
+    }).then(response => {
+      if (response.status == 201) {
+        setProjects(prevProjects => [...prevProjects, response.data])
+      } else {
+        console.log(response);
+      }
+    });
+    closeModalProject();
+  }
+
   return (
     <div className="page__projets">
 
@@ -44,7 +62,7 @@ const Projets = (props) => {
       </div>
 
       <Modal show={modalProject} hide={closeModalProject} title="Ajouter un projet">
-        <Form action="/api/project/create" type="project">
+        <Form validated={validated}>
           <Input label="Nom du projet*" name="name" type="text" required="required" />
           <Textarea label="Description du projet*" name="description" required="required" />
           <Select label="Employés" name="employes" options={['Dude1', 'Dude2', 'Dude3', 'Dude4']} />

@@ -1,12 +1,9 @@
-import React, { useContext } from "react";
-import { ProjectContext } from './../../utils/ProjectContext.js';
-import { postData } from './../../utils';
+import React from "react";
 
 const Form = (props) => {
 
-  const [setProjects] = useContext(ProjectContext);
-
   const validation = (e) => {
+
     e.preventDefault();
 
     let formData = {};
@@ -24,38 +21,17 @@ const Form = (props) => {
       }
     });
 
-    if(validation){
+    if (validation && props.validated){
 
       formData = new FormData(form);
       formData = Object.fromEntries(formData.entries());
 
-      console.log(formData)
-
-      if(props.type === "project"){ 
-
-        postData(props.action , {
-          name: formData.name,
-          statut: {
-            key: formData.statut,
-            label: formData.statut.charAt(0).toUpperCase() + formData.statut.slice(1)
-          }
-        }).then(response=>{
-          if(response.status == 201){
-            setProjects(prevProjects => [...prevProjects , response.data])
-          }else{
-            console.log(response);
-          }
-        });
-
-      }
+      props.validated(formData);
 
       // Delete data
       inputs && inputs.forEach((input) => {
         input.value = '';
       });
-
-      form.parentElement.querySelector('.block__modal .btn_close').click();
-      console.log('validated')
 
     }
   }
