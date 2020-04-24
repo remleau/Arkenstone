@@ -29,9 +29,11 @@ const Form = (props) => {
       props.validated(formData);
 
       // Delete data
-      inputs && inputs.forEach((input) => {
-        input.value = '';
-      });
+      if(!props.reset){
+        inputs && inputs.forEach((input) => {
+          input.value = '';
+        });
+      }
 
     }
   }

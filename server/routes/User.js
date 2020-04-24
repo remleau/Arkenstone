@@ -16,24 +16,26 @@ router.post('/me', function (req, res) {
 
 		User.findOne({ where: { id: user.id } })
 			.then((user) => {
-				if (!user) res.status(404).send({ error: "Une erreur est survenue" });
-
-				req.io.on('connection', (socket) => {
-					console.log(socket.adapter.rooms)
-					socket.emit('user_connected', {
-						firstName: user.firstName,
-						lastName: user.lastName
+				if (!user){
+					res.status(404).send({ error: "Une erreur est survenue" });
+				}else {
+					req.io.on('connection', (socket) => {
+						console.log(socket.adapter.rooms)
+						socket.emit('user_connected', {
+							firstName: user.firstName,
+							lastName: user.lastName
+						});
 					});
-				});
 
-				res.status(200).send({
-					firstName: user.firstName,
-					lastName: user.lastName,
-					username: user.username,
-					email: user.email,
-					role: "admin",
-					token: token
-				});
+					res.status(200).send({
+						firstName: user.firstName,
+						lastName: user.lastName,
+						username: user.username,
+						email: user.email,
+						role: "admin",
+						token: token
+					});
+				}
 			});
 
 	});
