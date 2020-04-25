@@ -8,7 +8,6 @@ export const UserProvider = props => {
 
     const [cookies, removeCookie] = useCookies();
     const [user, setUser] = useState();
-    const [users, setUsers] = useState([]);
 
     const [isLoggedIn, setIsLoggedIn] = useState(cookies.user ? true : false);
 
@@ -29,7 +28,7 @@ export const UserProvider = props => {
     }, []);
 
     return(
-        <UserContext.Provider value={{ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers}}>
+        <UserContext.Provider value={{ user, setUser, isLoggedIn, setIsLoggedIn}}>
             {props.children}
         </UserContext.Provider>
     );

@@ -10,8 +10,10 @@ module.exports = (req, res, next) => {
 
 	// Headers for the token
 	const token = req.body.token;
+
+	console.log(token)
 	
-	if (token !== "undefined") {
+	if (token !== "undefined" && token && token !== undefined) {
 		// verifies secret and checks if the token is expired
 		jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
 			if (err) throw err;

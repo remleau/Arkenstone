@@ -15,4 +15,27 @@ const postData = async (url, data) => {
 
 };
 
-export { postData };
+const putData = async (url, data) => {
+
+	const response = await axios
+		.put(url, data)
+		.then(response => {
+			return response;
+		})
+		.catch(error => {
+			return error.response;
+		});
+
+	return response;
+
+};
+
+const removeEmpty = (obj) => {
+	Object.keys(obj).forEach((key) => (obj[key] == null || obj[key] == "") && delete obj[key]);
+}
+
+export { 
+	postData,
+	putData,
+	removeEmpty
+};
