@@ -26,11 +26,11 @@ const init = async () => {
 			password: bcrypt.hashSync('allo1234', 8)
 		});
 		User.create({
-			firstName: 'testname',
-			lastName: 'testlastname',
-			username: 'test',
-			email: 'test@test.test',
-			password: bcrypt.hashSync('test', 8)
+			firstName: 'Barry',
+			lastName: 'Allen',
+			username: 'flash',
+			email: 'fastest@man.alive',
+			password: bcrypt.hashSync('flash', 8)
 		})
 	});
 	console.log('Tables have synced!')

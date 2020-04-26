@@ -30,6 +30,21 @@ const putData = async (url, data) => {
 
 };
 
+const getData = async (url, data) => {
+
+	const response = await axios
+		.get(url, data)
+		.then(response => {
+			return response;
+		})
+		.catch(error => {
+			return error.response;
+		});
+
+	return response;
+
+}
+
 const removeEmpty = (obj) => {
 	Object.keys(obj).forEach((key) => (obj[key] == null || obj[key] == "") && delete obj[key]);
 }
@@ -37,5 +52,6 @@ const removeEmpty = (obj) => {
 export { 
 	postData,
 	putData,
+	getData,
 	removeEmpty
 };

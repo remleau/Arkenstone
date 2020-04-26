@@ -786,6 +786,10 @@ header nav.secondary ul li img {
   margin-right: 0.75rem;
 }
 
+header nav.secondary ul li a.is-active {
+  color: #00adb5;
+}
+
 .page__login {
   height: 100vh;
   width: 100%;

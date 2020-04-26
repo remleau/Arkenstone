@@ -58,6 +58,13 @@ header {
 					// 	}
 					// }
 				}
+
+				a {
+					&.is-active {
+						color: theme('colors.primaryColor');
+					}
+				}
+
 			}
 		}
 	}

@@ -1,12 +1,14 @@
 var router = require('express').Router();
 const { User } = require('./../Database.js');
 
-router.get('/all', function (req, res) {
+router.post('/all', function (req, res) {
+
 	User.findAll().then(users => {
-		res.send({ users });
+		res.status(200).send(users);
 	}).catch((err) => {
-		res.send({ err });
+		res.status(401).send({ err });
 	});
+	
 });
 
 module.exports = router;

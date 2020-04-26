@@ -9,7 +9,8 @@ module.exports = (database, Sequelize) => {
 			allowNull: false
 		},
 		email: {
-			type: Sequelize.STRING
+			type: Sequelize.STRING,
+			allowNull: false
 		},
 		username: {
 			type: Sequelize.STRING
@@ -17,17 +18,9 @@ module.exports = (database, Sequelize) => {
 		password: {
 			type: Sequelize.STRING,
 			allowNull: false
+		},
+		lastConnexion: {
+			type: Sequelize.DATE,
 		}
 	});
 }
-
-// database.sync()
-// 	.then(() => User.create({
-// 		firstName: 'Rémy',
-// 		lastName: 'Groleau',
-// 		username: 'remleau',
-// 		email: 'remleau@gmail.com'
-// 	}))
-// 	.then(user => {
-// 		console.log(user.toJSON());
-// 	});

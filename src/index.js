@@ -4,6 +4,7 @@ import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom';
 import { CookiesProvider } from 'react-cookie';
 import { UserProvider, UserContext } from './utils/UserContext.js';
 import { ProjectProvider } from './utils/ProjectContext.js';
+import { EmployeProvider } from './utils/EmployeContext.js';
 
 import Login from './pages/Login';
 import Homepage from './pages/Homepage';
@@ -48,9 +49,11 @@ ReactDOM.render(
 <BrowserRouter>
   <CookiesProvider>
   <UserProvider>
+  <EmployeProvider>
   <ProjectProvider>
     <App /> 
   </ProjectProvider>
+  </EmployeProvider>
   </UserProvider>
   </CookiesProvider>
 </BrowserRouter>

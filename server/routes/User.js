@@ -2,6 +2,7 @@ let router = require('express').Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { User } = require('./../Database.js');
+const Sequelize = require('sequelize');
 
 router.post('/me', function (req, res) {
 
@@ -13,14 +14,6 @@ router.post('/me', function (req, res) {
 		User.findOne({ where: { id: user.id } })
 			.then((user) => {
 				if (!user) return	res.status(404).send({ error: "Une erreur est survenue" });
-
-				req.io.on('connection', (socket) => {
-					console.log(socket.adapter.rooms)
-					socket.emit('user_connected', {
-						firstName: user.firstName,
-						lastName: user.lastName
-					});
-				});
 
 				res.status(200).send({
 					firstName: user.firstName,
@@ -47,14 +40,16 @@ router.post('/login', function (req, res) {
 
 			let passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
 			if (!passwordIsValid) {
-				res.status(401).send({ error: "Mot de passe ou username invalide" });
+				return res.status(401).send({ error: "Mot de passe ou username invalide" });
 			}
 
-			req.io.on('connection', (socket) => {
-				socket.emit('user_connected', {
-					firstName: user.firstName,
-					lastName: user.lastName
-				});
+			// Update last conenxion
+			User.update({
+				lastConnexion: Date.now(),
+			}, {
+				where: {
+					id: user.id
+				}
 			});
 
 			let token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
@@ -80,17 +75,42 @@ router.post('/login', function (req, res) {
 });
 
 router.post('/create', function (req, res) {
-	User.create({
-		firstName: req.body.firstName,
-		lastName: req.body.lastName,
-		email: req.body.email,
-		username: req.body.username,
-		password: req.body.password,
-	}).then(user => {
-		res.status(201).send({ user });
-	}).catch((err) => {
-		res.status(401).send({ err });
-	});
+
+	const { firstName, lastName, email, username, password } = req.body;
+
+	if (email  && username && password){
+		User.findOrCreate({ 
+			where: { 
+				[Sequelize.Op.or]: [
+					{ username: username },
+					{ email: email }
+				]
+			},
+			defaults: { 
+				firstName: firstName,
+				lastName: lastName,
+				email: email,
+				username: username,
+				password: bcrypt.hashSync(password, 8),
+			}
+		}).then(([user, created]) => {
+			if(created){
+				res.status(201).send({
+					firstName: user.firstName,
+					lastName: user.lastName,
+					email: user.email,
+					username: user.username,
+				})
+			}else{
+				res.status(400).send({ error: "L'employé existe déjà" });
+			}
+		}).catch((err) => {
+			res.status(401).send({ err });
+		});
+	}else {
+		res.status(401).send({ error: "Valeur manquante" });
+	}
+
 });
 
 router.put('/update', function (req, res) {

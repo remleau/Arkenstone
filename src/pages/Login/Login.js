@@ -38,7 +38,7 @@ const Login = (props) => {
       <div className="w-1/5 text-center">
         <h1 className="pb-8">{props.agencyName}</h1>
         <div className="flex flex-col">
-          <Form validated={validated}>
+          <Form validated={validated} reset="false">
             <Input type="text" name="username" placeholder="Username" required="required" />
             <Input type="password" name="password" placeholder="Password" required="required" />
             <div className="flex">
