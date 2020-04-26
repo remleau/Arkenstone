@@ -49,9 +49,14 @@ const removeEmpty = (obj) => {
 	Object.keys(obj).forEach((key) => (obj[key] == null || obj[key] == "") && delete obj[key]);
 }
 
+const formatDate = (date) => {
+	return new Date(date).toISOString().substring(0, 10);
+}
+
 export { 
 	postData,
 	putData,
 	getData,
-	removeEmpty
+	removeEmpty,
+	formatDate,
 };

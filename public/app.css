@@ -613,7 +613,7 @@ video {
 /** Import theme styles */
 
 body {
-  background-color: #f5f5f5f5;
+  background-color: #f5f5f5;
   overflow: hidden;
 }
 
@@ -641,7 +641,7 @@ input.error, select.error, textarea.error, button.error {
 }
 
 button {
-  color: #f5f5f5f5;
+  color: #f5f5f5;
   background-color: #00adb5;
   border-width: 0;
   border-radius: 0.25rem;
@@ -891,6 +891,41 @@ header nav.secondary ul li a.is-active {
   bottom: -2.25rem;
 }
 
+.block__employes {
+  border-width: 1px;
+  border-color: #ededed;
+}
+
+.block__employes > div {
+  display: flex;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #fff;
+  border-bottom-width: 1px;
+  border-color: #ededed;
+}
+
+.block__employes > div:last-of-type {
+  border-style: none;
+}
+
+.block__employes > div p {
+  width: 16.666667%;
+  color: #393e46;
+}
+
+@media (hover: hover) {
+  .block__employes-infos:hover {
+    background-color: #00adb5;
+  }
+
+  .block__employes-infos:hover p {
+    color: #ededed;
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1000,7 +1035,7 @@ header nav.secondary ul li a.is-active {
 }
 
 .bg-primaryLight {
-  background-color: #f5f5f5f5;
+  background-color: #f5f5f5;
 }
 
 .hover\:bg-transparent:hover {
@@ -1048,7 +1083,7 @@ header nav.secondary ul li a.is-active {
 }
 
 .hover\:bg-primaryLight:hover {
-  background-color: #f5f5f5f5;
+  background-color: #f5f5f5;
 }
 
 .focus\:bg-transparent:focus {
@@ -1096,7 +1131,7 @@ header nav.secondary ul li a.is-active {
 }
 
 .focus\:bg-primaryLight:focus {
-  background-color: #f5f5f5f5;
+  background-color: #f5f5f5;
 }
 
 .bg-bottom {
@@ -1224,7 +1259,7 @@ header nav.secondary ul li a.is-active {
 }
 
 .border-primaryLight {
-  border-color: #f5f5f5f5;
+  border-color: #f5f5f5;
 }
 
 .hover\:border-transparent:hover {
@@ -1272,7 +1307,7 @@ header nav.secondary ul li a.is-active {
 }
 
 .hover\:border-primaryLight:hover {
-  border-color: #f5f5f5f5;
+  border-color: #f5f5f5;
 }
 
 .focus\:border-transparent:focus {
@@ -1320,7 +1355,7 @@ header nav.secondary ul li a.is-active {
 }
 
 .focus\:border-primaryLight:focus {
-  border-color: #f5f5f5f5;
+  border-color: #f5f5f5;
 }
 
 .rounded-none {
@@ -4328,7 +4363,7 @@ header nav.secondary ul li a.is-active {
 }
 
 .placeholder-primaryLight::placeholder {
-  color: #f5f5f5f5;
+  color: #f5f5f5;
 }
 
 .focus\:placeholder-transparent:focus::placeholder {
@@ -4376,7 +4411,7 @@ header nav.secondary ul li a.is-active {
 }
 
 .focus\:placeholder-primaryLight:focus::placeholder {
-  color: #f5f5f5f5;
+  color: #f5f5f5;
 }
 
 .pointer-events-none {
@@ -4699,7 +4734,7 @@ header nav.secondary ul li a.is-active {
 }
 
 .text-primaryLight {
-  color: #f5f5f5f5;
+  color: #f5f5f5;
 }
 
 .hover\:text-transparent:hover {
@@ -4747,7 +4782,7 @@ header nav.secondary ul li a.is-active {
 }
 
 .hover\:text-primaryLight:hover {
-  color: #f5f5f5f5;
+  color: #f5f5f5;
 }
 
 .focus\:text-transparent:focus {
@@ -4795,7 +4830,7 @@ header nav.secondary ul li a.is-active {
 }
 
 .focus\:text-primaryLight:focus {
-  color: #f5f5f5f5;
+  color: #f5f5f5;
 }
 
 .text-xs {
@@ -7751,7 +7786,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .sm\:bg-primaryLight {
-    background-color: #f5f5f5f5;
+    background-color: #f5f5f5;
   }
 
   .sm\:hover\:bg-transparent:hover {
@@ -7799,7 +7834,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .sm\:hover\:bg-primaryLight:hover {
-    background-color: #f5f5f5f5;
+    background-color: #f5f5f5;
   }
 
   .sm\:focus\:bg-transparent:focus {
@@ -7847,7 +7882,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .sm\:focus\:bg-primaryLight:focus {
-    background-color: #f5f5f5f5;
+    background-color: #f5f5f5;
   }
 
   .sm\:bg-bottom {
@@ -7975,7 +8010,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .sm\:border-primaryLight {
-    border-color: #f5f5f5f5;
+    border-color: #f5f5f5;
   }
 
   .sm\:hover\:border-transparent:hover {
@@ -8023,7 +8058,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .sm\:hover\:border-primaryLight:hover {
-    border-color: #f5f5f5f5;
+    border-color: #f5f5f5;
   }
 
   .sm\:focus\:border-transparent:focus {
@@ -8071,7 +8106,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .sm\:focus\:border-primaryLight:focus {
-    border-color: #f5f5f5f5;
+    border-color: #f5f5f5;
   }
 
   .sm\:rounded-none {
@@ -11079,7 +11114,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .sm\:placeholder-primaryLight::placeholder {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .sm\:focus\:placeholder-transparent:focus::placeholder {
@@ -11127,7 +11162,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .sm\:focus\:placeholder-primaryLight:focus::placeholder {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .sm\:pointer-events-none {
@@ -11450,7 +11485,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .sm\:text-primaryLight {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .sm\:hover\:text-transparent:hover {
@@ -11498,7 +11533,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .sm\:hover\:text-primaryLight:hover {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .sm\:focus\:text-transparent:focus {
@@ -11546,7 +11581,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .sm\:focus\:text-primaryLight:focus {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .sm\:text-xs {
@@ -14503,7 +14538,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .md\:bg-primaryLight {
-    background-color: #f5f5f5f5;
+    background-color: #f5f5f5;
   }
 
   .md\:hover\:bg-transparent:hover {
@@ -14551,7 +14586,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .md\:hover\:bg-primaryLight:hover {
-    background-color: #f5f5f5f5;
+    background-color: #f5f5f5;
   }
 
   .md\:focus\:bg-transparent:focus {
@@ -14599,7 +14634,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .md\:focus\:bg-primaryLight:focus {
-    background-color: #f5f5f5f5;
+    background-color: #f5f5f5;
   }
 
   .md\:bg-bottom {
@@ -14727,7 +14762,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .md\:border-primaryLight {
-    border-color: #f5f5f5f5;
+    border-color: #f5f5f5;
   }
 
   .md\:hover\:border-transparent:hover {
@@ -14775,7 +14810,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .md\:hover\:border-primaryLight:hover {
-    border-color: #f5f5f5f5;
+    border-color: #f5f5f5;
   }
 
   .md\:focus\:border-transparent:focus {
@@ -14823,7 +14858,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .md\:focus\:border-primaryLight:focus {
-    border-color: #f5f5f5f5;
+    border-color: #f5f5f5;
   }
 
   .md\:rounded-none {
@@ -17831,7 +17866,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .md\:placeholder-primaryLight::placeholder {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .md\:focus\:placeholder-transparent:focus::placeholder {
@@ -17879,7 +17914,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .md\:focus\:placeholder-primaryLight:focus::placeholder {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .md\:pointer-events-none {
@@ -18202,7 +18237,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .md\:text-primaryLight {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .md\:hover\:text-transparent:hover {
@@ -18250,7 +18285,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .md\:hover\:text-primaryLight:hover {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .md\:focus\:text-transparent:focus {
@@ -18298,7 +18333,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .md\:focus\:text-primaryLight:focus {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .md\:text-xs {
@@ -21255,7 +21290,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .lg\:bg-primaryLight {
-    background-color: #f5f5f5f5;
+    background-color: #f5f5f5;
   }
 
   .lg\:hover\:bg-transparent:hover {
@@ -21303,7 +21338,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .lg\:hover\:bg-primaryLight:hover {
-    background-color: #f5f5f5f5;
+    background-color: #f5f5f5;
   }
 
   .lg\:focus\:bg-transparent:focus {
@@ -21351,7 +21386,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .lg\:focus\:bg-primaryLight:focus {
-    background-color: #f5f5f5f5;
+    background-color: #f5f5f5;
   }
 
   .lg\:bg-bottom {
@@ -21479,7 +21514,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .lg\:border-primaryLight {
-    border-color: #f5f5f5f5;
+    border-color: #f5f5f5;
   }
 
   .lg\:hover\:border-transparent:hover {
@@ -21527,7 +21562,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .lg\:hover\:border-primaryLight:hover {
-    border-color: #f5f5f5f5;
+    border-color: #f5f5f5;
   }
 
   .lg\:focus\:border-transparent:focus {
@@ -21575,7 +21610,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .lg\:focus\:border-primaryLight:focus {
-    border-color: #f5f5f5f5;
+    border-color: #f5f5f5;
   }
 
   .lg\:rounded-none {
@@ -24583,7 +24618,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .lg\:placeholder-primaryLight::placeholder {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .lg\:focus\:placeholder-transparent:focus::placeholder {
@@ -24631,7 +24666,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .lg\:focus\:placeholder-primaryLight:focus::placeholder {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .lg\:pointer-events-none {
@@ -24954,7 +24989,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .lg\:text-primaryLight {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .lg\:hover\:text-transparent:hover {
@@ -25002,7 +25037,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .lg\:hover\:text-primaryLight:hover {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .lg\:focus\:text-transparent:focus {
@@ -25050,7 +25085,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .lg\:focus\:text-primaryLight:focus {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .lg\:text-xs {
@@ -28007,7 +28042,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .xl\:bg-primaryLight {
-    background-color: #f5f5f5f5;
+    background-color: #f5f5f5;
   }
 
   .xl\:hover\:bg-transparent:hover {
@@ -28055,7 +28090,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .xl\:hover\:bg-primaryLight:hover {
-    background-color: #f5f5f5f5;
+    background-color: #f5f5f5;
   }
 
   .xl\:focus\:bg-transparent:focus {
@@ -28103,7 +28138,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .xl\:focus\:bg-primaryLight:focus {
-    background-color: #f5f5f5f5;
+    background-color: #f5f5f5;
   }
 
   .xl\:bg-bottom {
@@ -28231,7 +28266,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .xl\:border-primaryLight {
-    border-color: #f5f5f5f5;
+    border-color: #f5f5f5;
   }
 
   .xl\:hover\:border-transparent:hover {
@@ -28279,7 +28314,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .xl\:hover\:border-primaryLight:hover {
-    border-color: #f5f5f5f5;
+    border-color: #f5f5f5;
   }
 
   .xl\:focus\:border-transparent:focus {
@@ -28327,7 +28362,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .xl\:focus\:border-primaryLight:focus {
-    border-color: #f5f5f5f5;
+    border-color: #f5f5f5;
   }
 
   .xl\:rounded-none {
@@ -31335,7 +31370,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .xl\:placeholder-primaryLight::placeholder {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .xl\:focus\:placeholder-transparent:focus::placeholder {
@@ -31383,7 +31418,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .xl\:focus\:placeholder-primaryLight:focus::placeholder {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .xl\:pointer-events-none {
@@ -31706,7 +31741,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .xl\:text-primaryLight {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .xl\:hover\:text-transparent:hover {
@@ -31754,7 +31789,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .xl\:hover\:text-primaryLight:hover {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .xl\:focus\:text-transparent:focus {
@@ -31802,7 +31837,7 @@ header nav.secondary ul li a.is-active {
   }
 
   .xl\:focus\:text-primaryLight:focus {
-    color: #f5f5f5f5;
+    color: #f5f5f5;
   }
 
   .xl\:text-xs {

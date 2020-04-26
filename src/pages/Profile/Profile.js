@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { UserContext } from './../../utils/UserContext.js';
 
-import { putData } from './../../utils';
+import { putData, formatDate } from './../../utils';
 import { Form, Input } from './../../components/Form';
 import Banner from './../../components/Banner';
 
@@ -31,6 +31,7 @@ const Profile = () => {
 
       <div className="flex items-center justify-between pb-8">
         <Banner pageTitle="Votre compte" />
+        <p>{user && 'Dernière modification: ' + formatDate(user.updatedAt)}</p>
       </div>
 
       <div className="">

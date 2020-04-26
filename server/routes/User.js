@@ -20,6 +20,8 @@ router.post('/me', function (req, res) {
 					lastName: user.lastName,
 					username: user.username,
 					email: user.email,
+					lastConnexion: user.lastConnexion,
+					updatedAt: user.updatedAt,
 					role: "admin",
 					token: token
 				});
@@ -61,6 +63,8 @@ router.post('/login', function (req, res) {
 				lastName: user.lastName,
 				username: user.username,
 				email: user.email,
+				lastConnexion: user.lastConnexion,
+				updatedAt: user.updatedAt,
 				role: "admin",
 				token: token
 			});
@@ -100,6 +104,7 @@ router.post('/create', function (req, res) {
 					lastName: user.lastName,
 					email: user.email,
 					username: user.username,
+					lastConnexion: user.lastConnexion,
 				})
 			}else{
 				res.status(400).send({ error: "L'employé existe déjà" });
@@ -133,6 +138,7 @@ router.put('/update', function (req, res) {
 			}
 		}).then(user => {
 			validated_data.token = token;
+			validated_data.updatedAt = user.updatedAt;
 			res.status(200).send(validated_data);
 		}).catch((err) => {
 			res.status(401).send({ error: "Une erreur est survenue" });

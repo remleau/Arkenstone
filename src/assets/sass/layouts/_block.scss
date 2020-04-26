@@ -52,4 +52,32 @@
 			}
 		}
 	}
+
+	&__employes {
+		@apply border border-primaryLightMedium;
+
+		> div {
+			@apply flex py-4 px-4 bg-white border-b border-primaryLightMedium;
+
+			&:last-of-type {
+				@apply border-none;
+			}
+
+			p {
+				@apply w-1/6 text-primaryDarkMedium;
+			}
+		}
+
+		&-infos {
+			@media (hover: hover) {
+				&:hover {
+					@apply bg-primaryColor;
+
+					p {
+						@apply text-primaryLightMedium;
+					}
+				}
+			}
+		}
+	}
 }

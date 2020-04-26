@@ -6,7 +6,7 @@ import Banner from './../../components/Banner';
 import Modal from './../../components/Modal';
 import UserCan from './../../components/Permissions';
 import { Form, Input, Error } from './../../components/Form';
-import { postData } from './../../utils';
+import { postData, formatDate } from './../../utils';
 
 const Employes = () => {
 
@@ -66,11 +66,16 @@ const Employes = () => {
       </Modal>
 
       <div className="block__employes">
+        <div>
+          <p className="font-medium">Nom</p>
+          <p className="font-medium">Courriel</p>
+          <p className="font-medium">Dernière connexion</p>
+        </div>
         {employes && employes.map((employe)=>(
-          <div>
+          <div className="block__employes-infos">
             <p>{employe.firstName + ' ' + employe.lastName}</p>
             <p>{employe.email}</p>
-            <p>{employe.lastConnexion ? new Date(employe.lastConnexion).toISOString().substring(0, 10) : "never"}</p>
+            <p>{employe.lastConnexion ? formatDate(employe.lastConnexion) : "Jamais"}</p>
           </div>
         ))}
       </div>

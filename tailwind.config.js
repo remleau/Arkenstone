@@ -24,7 +24,7 @@ module.exports = {
       'primaryDark': '#222831',
       'primaryDarkMedium': '#393e46',
       'primaryLightMedium': '#ededed',
-      'primaryLight': '#f5f5f5f5',
+      'primaryLight': '#f5f5f5',
 
     },
     spacing: {
