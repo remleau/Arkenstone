@@ -12,6 +12,15 @@ const env = process.env.ENV || 'development';
 const server = app.listen(port);
 const io = require('socket.io')(server);
 
+// Production mode
+if (env == 'production') {
+	const root = require('path').join(__dirname, '..', 'build')
+	app.use(express.static(root));
+	app.get('*', (req, res) => {
+		res.sendFile('index.html', { root });
+	});
+}
+
 // Middlewares
 app.use(cors());
 app.use(bodyParser.json()); // support parsing of application/json type post data
@@ -24,12 +33,3 @@ app.use(AuthMiddleware);
 
 // Routes
 app.use('/api', require('./routes'));
-
-// Production mode
-if (env == 'production'){
-	const root = require('path').join(__dirname, '..', 'build')
-	app.use(express.static(root));
-	app.get('*', (req, res) => {
-		res.sendFile('index.html', { root });
-	});
-}

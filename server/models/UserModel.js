@@ -1,5 +1,5 @@
 module.exports = (database, Sequelize) => {
-	return database.define('User', {
+	let User = database.define('User', {
 		firstName: {
 			type: Sequelize.STRING,
 			allowNull: false
@@ -19,8 +19,13 @@ module.exports = (database, Sequelize) => {
 			type: Sequelize.STRING,
 			allowNull: false
 		},
+		role: {
+			type: Sequelize.JSON,
+		},
 		lastConnexion: {
 			type: Sequelize.DATE,
 		}
 	});
+
+	return User;
 }

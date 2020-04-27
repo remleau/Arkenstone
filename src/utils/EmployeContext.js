@@ -16,7 +16,6 @@ export const EmployeProvider = props => {
         }).then(response => {
             if (response.status == 200) {
                 setEmployes(response.data)
-                console.log(response.data)
             } else {
                 console.log(response.data)
             }

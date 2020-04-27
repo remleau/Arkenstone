@@ -916,6 +916,10 @@ header nav.secondary ul li a.is-active {
   color: #393e46;
 }
 
+.block__employes-infos {
+  cursor: pointer;
+}
+
 @media (hover: hover) {
   .block__employes-infos:hover {
     background-color: #00adb5;

@@ -13,6 +13,7 @@ router.post('/all', function (req, res) {
 				email: user.email,
 				username: user.username,
 				lastConnexion: user.lastConnexion,
+				role: user.role,
 			});
 		});
 		res.status(200).send(users_data);

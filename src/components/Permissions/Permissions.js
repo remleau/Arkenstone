@@ -1,17 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from './../../utils/UserContext.js';
 
-const Permissions = ({ perm, children }) => {
+const Permissions = (props) => {
 
   const { user } = useContext(UserContext);
 
-  if(user && user.role != 'admin') {
+  const [isAble, setIsAble] = useState(false);
+
+  useEffect(() => {
+    props.role && props.role.map((role) => {
+      user && Object.values(user.role).map((userRole) => {
+        if (userRole.slug == role) {
+          setIsAble(true)
+        }
+      });
+    });
+  },[user]);
+
+  if (isAble == false){
     return (null);
   }
 
   return (
     <React.Fragment>
-      {children}
+      {props.children}
     </React.Fragment>
   );
 }

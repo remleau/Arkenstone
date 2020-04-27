@@ -12,21 +12,22 @@ router.post('/me', function (req, res) {
 		if (err) return res.status(401).send({ error: "Le token à expiré" });
 
 		User.findOne({ where: { id: user.id } })
-			.then((user) => {
-				if (!user) return	res.status(404).send({ error: "Une erreur est survenue" });
+		.then((user) => {
+			if (!user) return	res.status(404).send({ error: "Une erreur est survenue" });
 
-				res.status(200).send({
-					firstName: user.firstName,
-					lastName: user.lastName,
-					username: user.username,
-					email: user.email,
-					lastConnexion: user.lastConnexion,
-					updatedAt: user.updatedAt,
-					role: "admin",
-					token: token
-				});
-
+			res.status(200).send({
+				firstName: user.firstName,
+				lastName: user.lastName,
+				username: user.username,
+				email: user.email,
+				lastConnexion: user.lastConnexion,
+				updatedAt: user.updatedAt,
+				role: user.role,
+				token: token
 			});
+
+		});
+
 	});
 
 });
@@ -65,7 +66,7 @@ router.post('/login', function (req, res) {
 				email: user.email,
 				lastConnexion: user.lastConnexion,
 				updatedAt: user.updatedAt,
-				role: "admin",
+				role: user.role,
 				token: token
 			});
 
@@ -104,6 +105,7 @@ router.post('/create', function (req, res) {
 					lastName: user.lastName,
 					email: user.email,
 					username: user.username,
+					role: user.role,
 					lastConnexion: user.lastConnexion,
 				})
 			}else{
@@ -138,6 +140,7 @@ router.put('/update', function (req, res) {
 			}
 		}).then(user => {
 			validated_data.token = token;
+			validated_data.role = user.role;
 			validated_data.updatedAt = user.updatedAt;
 			res.status(200).send(validated_data);
 		}).catch((err) => {

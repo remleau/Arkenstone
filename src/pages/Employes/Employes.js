@@ -46,7 +46,7 @@ const Employes = () => {
 
       <div className="flex items-center justify-between pb-8">
         <Banner pageTitle="Employés" />
-        <UserCan>
+        <UserCan role={["administrateur"]}>
           <button onClick={showModal}>Ajouter un employé</button>
         </UserCan>
       </div>
@@ -69,12 +69,14 @@ const Employes = () => {
         <div>
           <p className="font-medium">Nom</p>
           <p className="font-medium">Courriel</p>
+          <p className="font-medium">Rôle</p>
           <p className="font-medium">Dernière connexion</p>
         </div>
-        {employes && employes.map((employe)=>(
-          <div className="block__employes-infos">
+        {employes && employes.map((employe, key)=>(
+          <div key={key} className="block__employes-infos">
             <p>{employe.firstName + ' ' + employe.lastName}</p>
             <p>{employe.email}</p>
+            <p>{Object.values(employe.role)[0].label}</p>
             <p>{employe.lastConnexion ? formatDate(employe.lastConnexion) : "Jamais"}</p>
           </div>
         ))}

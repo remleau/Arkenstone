@@ -69,6 +69,8 @@
 		}
 
 		&-infos {
+			@apply cursor-pointer;
+
 			@media (hover: hover) {
 				&:hover {
 					@apply bg-primaryColor;
